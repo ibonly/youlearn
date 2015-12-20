@@ -1,4 +1,4 @@
-<?php
+.<?php
 
 namespace YouLearn\Http\Controllers;
 
@@ -44,8 +44,6 @@ class OauthController extends Controller
      *
      * @param  $request
      * @param  $provider
-     *
-     * @return  [object]
      */
     public function getSocialRedirect(Request $request, $provider )
     {
@@ -70,8 +68,6 @@ class OauthController extends Controller
      *
      * @param  $value
      * @param  $provider
-     *
-     * @return [object]
      */
     public function checkUserExist($value, $provider)
     {
@@ -85,8 +81,6 @@ class OauthController extends Controller
      * getOauth Get the social account details
      *
      * @param  $provider
-     *
-     * @return [object]
      */
     public function getOauth($provider)
     {
@@ -106,8 +100,6 @@ class OauthController extends Controller
      *
      * @param  $userData
      * @param  $provider
-     *
-     * @return [object]
      */
     public function findByIDorCreate($userData, $provider)
     {

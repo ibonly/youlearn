@@ -19,7 +19,7 @@ class VideoController extends Controller
     /**
      * Load video upload page
      */
-    public function uploadPage ()
+    public function uploadPage()
     {
         $recent = $this->recentVideos();
         $categories = $this->getCategory();
@@ -32,7 +32,7 @@ class VideoController extends Controller
      *
      * @param  $id
      */
-    public function playVideo ($title)
+    public function playVideo($title)
     {
         $recent = $this->recentVideos();
         $categories = $this->getCategory();
@@ -46,7 +46,7 @@ class VideoController extends Controller
     /**
      * Load update video upload page
      */
-    public function updatePage ($title)
+    public function updatePage($title)
     {
         $recent = $this->recentVideos();
         $categories = $this->getCategory();
