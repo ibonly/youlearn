@@ -49,7 +49,7 @@ class UserController extends Controller
      */
     public function myVideos(Request $request)
     {
-        $videos = Video::where('user_id', $request->user()->id)->orderBy('created_at', 'asc')->paginate(9);
+        $videos = Video::where('user_id', $request->user()->id)->orderBy('created_at', 'desc')->paginate(9);
         $categories = $this->getCategory();
 
         return view('pages.videos', compact('videos', 'categories'));

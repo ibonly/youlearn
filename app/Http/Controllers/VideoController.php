@@ -115,7 +115,8 @@ class VideoController extends Controller
         if ($update) {
             $this->response = [
                 "message"     => "Video updated successfully",
-                "status_code" => 200
+                "status_code" => 202,
+                "url"         => "/user/videos"
             ];
         } else {
             $this->response = [

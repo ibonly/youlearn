@@ -6,6 +6,7 @@ use Auth;
 use Socialite;
 use YouLearn\User;
 use YouLearn\Avatar;
+use Illuminate\Support\Str;
 use YouLearn\Http\Requests;
 use Illuminate\Http\Request;
 use YouLearn\Http\Controllers\Controller;
@@ -75,7 +76,7 @@ class OauthController extends Controller
     public function checkUserExist($value, $provider)
     {
         $columnName  = $provider.'ID';
-        $user = User::where($columnName, $value->getId())->orWhere('username', $value->getNickname())->orWhere('email', $value->getEmail())->first();
+        $user = User::where($columnName, $value->getId())->orWhere('username', $value->getNickname())->orWhere('username', Str::slug($value->getName()))->orWhere('email', $value->getEmail())->first();
 
         return $user;
     }
@@ -142,7 +143,7 @@ class OauthController extends Controller
         $array[$provider.'ID'] = $userData->getId();
 
         if ($userData->getNickname() === null) {
-            $array['username'] = $userData->getName();
+            $array['username'] = Str::slug($userData->getName());
         }
 
         $user = User::create($array);
