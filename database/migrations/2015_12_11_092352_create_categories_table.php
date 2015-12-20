@@ -54,6 +54,18 @@ class CreateCategoriesTable extends Migration
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
         ]);
+        DB::table('categories')->insert([
+            'id' => 7,
+            'name' => 'Python',
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s')
+        ]);
+        DB::table('categories')->insert([
+            'id' => 8,
+            'name' => 'Ruby',
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s')
+        ]);
     }
 
     /**

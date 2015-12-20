@@ -24,9 +24,10 @@ class UserController extends Controller
     public function editPage(Request $request)
     {
         $users = $request->user();
+        $recent = $this->recentVideos();
         $categories = $this->getCategory();
 
-        return view('pages.useredit', compact('categories', 'users'));
+        return view('pages.useredit', compact('categories', 'users', 'recent'));
     }
 
     /**
@@ -49,10 +50,11 @@ class UserController extends Controller
      */
     public function myVideos(Request $request)
     {
-        $videos = Video::where('user_id', $request->user()->id)->orderBy('created_at', 'desc')->paginate(9);
+        $recent = $this->recentVideos();
         $categories = $this->getCategory();
+        $videos = Video::where('user_id', $request->user()->id)->orderBy('created_at', 'desc')->paginate(9);
 
-        return view('pages.videos', compact('videos', 'categories'));
+        return view('pages.videos', compact('videos', 'categories', 'recent'));
     }
 
     /*

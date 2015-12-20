@@ -31,22 +31,18 @@ Route::group(['middleware' => 'guest'], function () {
         'middleware'   => ['guest']
     ]);
 
+    Route::get('/register', [
+        'uses' => 'Auth\AuthController@registrationPage',
+        'as'   => 'register',
+        'middleware'   => ['guest']
+    ]);
+
     Route::post('/register', [
         'uses' => 'Auth\AuthController@register'
     ]);
 
     Route::post('/search', [
         'uses' => 'SearchController@show'
-    ]);
-
-    Route::get('/play/{title}', [
-        'uses' => 'VideoController@playVideo',
-        'as'   => 'play'
-    ]);
-
-    Route::get('/category/{name}', [
-        'uses' => 'CategoryController@getVideoInCategory',
-        'as'   => 'category'
     ]);
 
     /*
@@ -84,6 +80,16 @@ Route::group(['middleware' => 'guest'], function () {
     ]);
 
 });
+
+Route::get('/play/{title}', [
+    'uses' => 'VideoController@playVideo',
+    'as'   => 'play'
+]);
+
+Route::get('/category/{name}', [
+    'uses' => 'CategoryController@getVideoInCategory',
+    'as'   => 'category'
+]);
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/home', [
@@ -140,15 +146,5 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::delete('/video/{id}/delete', [
         'uses' => 'VideoController@deleteVideo'
-    ]);
-
-    Route::get('/play/{title}', [
-        'uses' => 'VideoController@playVideo',
-        'as'   => 'play'
-    ]);
-
-    Route::get('/category/{name}', [
-        'uses' => 'CategoryController@getVideoInCategory',
-        'as'   => 'category'
     ]);
 });

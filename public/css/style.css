@@ -7,14 +7,44 @@ nav ul a:hover{
 
 body
 {
-    background: #FAFAFA;
+    background: #F1F1F1;
 }
 
 #mid-form
 {
     overflow: hidden;
 }
+.recent-list
+{
+    overflow: hidden;
+    background: #ffffff;
+    width: 100%;
+}
+.recent-list li
+{
+    overflow: hidden;
+    color: #333;
+}
+.recent-list a
+{
+    color: #333;
+}
+.recent-list a img
+{
+    width: 20%;
+}
 
+.recent-list #side_title
+{
+    font-size: 12px;
+    width: 80%;
+    float: right;
+}
+.recent-list small
+{
+    font-size: 12px;
+    font-weight: none;
+}
 #avatar
 {
     margin-top: 5px;
@@ -107,18 +137,44 @@ h6
 
 #play-video, .play-details
 {
-    margin: auto;
-    border: 1px solid #eee;
     overflow: hidden;
-    width: 96%;
-    -webkit-box-shadow: 0px -1px 6px -1px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px -1px 6px -1px rgba(0,0,0,0.75);
-    box-shadow: 0px -1px 6px -1px rgba(0,0,0,0.75);
+    width: 100%;
+    background: #ffffff;
+}
+
+#video-frame
+{
+    width: 100%;
+    overflow: hidden;
+}
+
+#title
+{
+    width: 100%;
+    border-bottom: 1px solid #eee;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+.play-details
+{
+    margin-top: 10px;
+}
+
+#video-profile
+{
+    float: left;
+    width: 15%;
 }
 
 #video
 {
+    width: 85%;
     padding: 10px;
+    font-size: 14px;
+    float: right;
+    font-weight: none;
+    overflow: hidden;
 }
 
 body {

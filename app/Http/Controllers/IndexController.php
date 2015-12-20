@@ -15,9 +15,10 @@ class IndexController extends Controller
      */
     public function homePage(Request $request)
     {
+        $recent = $this->recentVideos();
         $categories = $this->getCategory();
         $videos = Video::orderBy('id', 'asc')->paginate(9);
 
-        return view('pages.home', compact('categories', 'videos'));
+        return view('pages.home', compact('categories', 'videos', 'recent'));
     }
 }

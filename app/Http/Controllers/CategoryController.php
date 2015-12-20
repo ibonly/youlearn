@@ -29,11 +29,12 @@ class CategoryController extends Controller
      */
     public function getVideoInCategory($name)
     {
+        $recent = $this->recentVideos();
         $category = Category::where('name', $name)->first();
         $videos = Video::where('category_id', $category->id)->orderBy('created_at', 'desc')->paginate(9);
 
         $categories = $this->getCategory();
 
-        return view('pages.category', compact('videos', 'categories'));
+        return view('pages.category', compact('videos', 'categories', 'recent'));
     }
 }

@@ -47,9 +47,10 @@ class AuthController extends Controller
      */
     public function loginPage()
     {
+        $recent = $this->recentVideos();
         $categories = $this->getCategory();
 
-        return view('pages.login', compact('categories'));
+        return view('pages.login', compact('categories', 'recent'));
     }
 
     /**
@@ -57,9 +58,10 @@ class AuthController extends Controller
      */
     public function registrationPage()
     {
+        $recent = $this->recentVideos();
         $categories = $this->getCategory();
 
-        return view('pages.register', compact('categories'));
+        return view('pages.register', compact('categories', 'recent'));
     }
 
     /**

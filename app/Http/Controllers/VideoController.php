@@ -3,6 +3,7 @@
 namespace YouLearn\Http\Controllers;
 
 use YouLearn\Video;
+use YouLearn\Avatar;
 use YouLearn\Category;
 use Illuminate\Support\Str;
 use YouLearn\Http\Requests;
@@ -20,9 +21,10 @@ class VideoController extends Controller
      */
     public function uploadPage ()
     {
+        $recent = $this->recentVideos();
         $categories = $this->getCategory();
 
-        return view('pages.upload', compact('categories'));
+        return view('pages.upload', compact('categories', 'recent'));
     }
 
     /**
@@ -32,10 +34,13 @@ class VideoController extends Controller
      */
     public function playVideo ($title)
     {
+        $recent = $this->recentVideos();
         $categories = $this->getCategory();
         $video = Video::where('slug', $title)->first();
+        $avatar = Avatar::whereUser_id($video->user_id)->first();
+        $video->avatar = $avatar->avatarURL;
 
-        return view('pages.play', compact('categories', 'video'));
+        return view('pages.play', compact('categories', 'video', 'recent'));
     }
 
     /**
@@ -43,10 +48,11 @@ class VideoController extends Controller
      */
     public function updatePage ($title)
     {
+        $recent = $this->recentVideos();
         $categories = $this->getCategory();
         $video = Video::where('slug', $title)->first();
 
-        return view('pages.updateVideo', compact('categories', 'video'));
+        return view('pages.updateVideo', compact('categories', 'video', 'recent'));
     }
 
     /**

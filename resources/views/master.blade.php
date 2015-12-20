@@ -36,7 +36,7 @@
 
                 </div>
 
-                <div class="col s7 m3 offset-s6 hide-on-small-only right">
+                <div class="col s7 m4 offset-s6 hide-on-small-only right">
 
                     @include('sections.sidenav')
 
