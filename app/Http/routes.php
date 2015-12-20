@@ -10,7 +10,145 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+Route::group(['middleware' => 'guest'], function () {
+    Route::get('/', [
+        'uses' => 'IndexController@homePage',
+        'as'   => 'home'
+    ]);
 
-Route::get('/', function () {
-    return view('welcome');
+    Route::get('/login', [
+        'uses' => 'Auth\AuthController@loginPage',
+        'as'   => 'login'
+    ]);
+
+    Route::post('/login', [
+        'uses' => 'Auth\AuthController@postLogin'
+    ]);
+
+    Route::get('/login/{provider}', [
+        'uses' => 'OauthController@getSocialRedirect',
+        'as'   => 'login',
+        'middleware'   => ['guest']
+    ]);
+
+    Route::post('/register', [
+        'uses' => 'Auth\AuthController@register'
+    ]);
+
+    Route::post('/search', [
+        'uses' => 'SearchController@show'
+    ]);
+
+    Route::get('/play/{title}', [
+        'uses' => 'VideoController@playVideo',
+        'as'   => 'play'
+    ]);
+
+    Route::get('/category/{name}', [
+        'uses' => 'CategoryController@getVideoInCategory',
+        'as'   => 'category'
+    ]);
+
+    /*
+    /-------------------------------------------------------------------------------
+    / Password reset link request
+    /-------------------------------------------------------------------------------
+    */
+
+    Route::get('passwordreset', [
+        'uses' => 'Auth\PasswordController@passwordPage',
+        'as'   => 'passwordreset',
+        'middleware'   => ['guest']
+    ]);
+
+    Route::get('password/email', [
+        'uses' =>'Auth\PasswordController@getEmailPage',
+        'as'   => "passwordreset"
+    ]);
+
+    Route::post('password/email', [
+        'uses' => 'Auth\PasswordController@postEmailForm',
+        'as'   => 'passwordreset'
+    ]);
+
+    // Password reset routes...
+    Route::get('password/reset/{token}', [
+        'uses' =>'Auth\PasswordController@getResetPage',
+        'as'   => 'passwordresetpage'
+    ]);
+
+    // #resetGetEmail
+    Route::post('password/resetGetEmail', [
+        'uses' => 'Auth\PasswordController@postResetCheckEmail',
+        'as'   => 'postpasswordresetCheckEmail'
+    ]);
+
+});
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/home', [
+        'uses' => 'IndexController@homePage',
+        'as'   => 'home'
+    ]);
+
+    Route::post('/search', [
+        'uses' => 'SearchController@show'
+    ]);
+
+    Route::get('/user/details', [
+        'uses' => 'UserController@editPage',
+        'as'   => 'edit'
+    ]);
+
+    Route::put('/user/update', [
+        'uses' => 'UserController@userUpdate'
+    ]);
+
+    Route::post('/user/avatar', [
+        'uses' => 'UserController@uploadAvatar'
+    ]);
+
+    Route::get('/logout', [
+        'uses' => 'Auth\AuthController@getLogout',
+        'as'   => 'logout'
+    ]);
+
+    Route::get('/user/videos', [
+        'uses' => 'UserController@myVideos',
+        'as'   => 'myVideos',
+        'middleware'   => ['auth']
+    ]);
+
+    Route::get('/video/upload', [
+        'uses' => 'VideoController@uploadPage',
+        'as'   => 'upload'
+    ]);
+
+    Route::post('/video/upload', [
+        'uses' => 'VideoController@uploadVideo'
+    ]);
+
+    Route::get('/video/{title}/edit', [
+        'uses' => 'VideoController@updatePage',
+            'as'   => 'video-edit'
+    ]);
+
+    Route::put('/video/edit', [
+        'uses' => 'VideoController@editVideo',
+        'as'   => 'video-edit'
+    ]);
+
+    Route::delete('/video/{id}/delete', [
+        'uses' => 'VideoController@deleteVideo'
+    ]);
+
+    Route::get('/play/{title}', [
+        'uses' => 'VideoController@playVideo',
+        'as'   => 'play'
+    ]);
+
+    Route::get('/category/{name}', [
+        'uses' => 'CategoryController@getVideoInCategory',
+        'as'   => 'category'
+    ]);
 });

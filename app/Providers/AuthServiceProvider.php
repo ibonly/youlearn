@@ -26,6 +26,8 @@ class AuthServiceProvider extends ServiceProvider
     {
         parent::registerPolicies($gate);
 
-        //
+        $gate->define('see-edit', function ($user, $video) {
+            return $user->id === $video->user_id;
+        });
     }
 }
