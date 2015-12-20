@@ -72,6 +72,7 @@ class AuthController extends Controller
     public function getLogout(Request $request)
     {
         Auth::logout();
+
         return redirect('/');
     }
 
@@ -108,9 +109,13 @@ class AuthController extends Controller
         ]);
     }
 
+    /**
+     * Create a default avatar
+     *
+     * @param  Request $request
+     */
     protected function createDefaultAvatar(Request $request)
     {
-
         $userID = User::where('username', $request->username)->first();
         Avatar::create([
             'user_id' => $userID->id,
@@ -140,6 +145,7 @@ class AuthController extends Controller
                 'status_code' => 400
             ];
         }
+
         return $this->response;
     }
 
