@@ -1,27 +1,70 @@
-## Laravel PHP Framework
+# youlearn
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+[![Build Status](https://travis-ci.org/andela-iadeniyi/youlearn.svg)](https://travis-ci.org/andela-iadeniyi/youlearn)
+[![License](http://img.shields.io/:license-mit-blue.svg)](https://github.com/andela-iadeniyi/youlearn/blob/master/LICENCE)
+[![Quality Score](https://img.shields.io/scrutinizer/g/andela-iadeniyi/youlearn.svg?style=flat-square)](https://scrutinizer-ci.com/g/andela-iadeniyi/youlearn)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/andela-iadeniyi/youlearn/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/andela-iadeniyi/youlearn/?branch=master)
+[![Code Climate](https://codeclimate.com/github/andela-iadeniyi/youlearn/badges/gpa.svg)](https://codeclimate.com/github/andela-iadeniyi/youlearn)
+[![Test Coverage](https://codeclimate.com/github/andela-iadeniyi/youlearn/badges/coverage.svg)](https://codeclimate.com/github/andela-iadeniyi/youlearn/coverage)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+[![Coverage Status](https://coveralls.io/repos/andela-iadeniyi/youlearn/badge.svg?branch=master&service=github)](https://coveralls.io/github/andela-iadeniyi/youlearn?branch=master)
 
-Laravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+Visit [YouLearn demo page](https://youlearn.herokuapp.com/) to view the project demo.
 
-## Official Documentation
+YouLearn is a PHP Learning Management System project that provides a platform for sharing Youtube videos that teach something people could learn.
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+## Usage
+
+To download and use this project you need to have the following installed on your machine
+
+- Composer
+  Visit the [official website](https://getcomposer.org/doc/00-intro.md) for installation instructions.
+- Laravel homestead
+  Visit [Laravel website](http://laravel.com/docs/5.1/homestead) for installation and setup instructions.
+
+```bash
+$ git clone https://github.com/andela-iadeniyi/YouLearn
+`````
+to clone the repository to your working directory. This step presumes that you have git set up and running. Update your .env file to contain your database information.
+
+Run
+
+```bash
+$ composer install
+```
+to pull in the project dependencies.
+
+*Project Features
+
+- Registration/Login
+- Password reset
+- Social authentication
+- Profile Management(Password update, avatar upload)
+- Youtube video upload
+- Browse all videos
+- Browse videos by category
+- View single video
+
+## Change log
+
+Please check out [CHANGELOG](CHANGELOG.md) file for information on what has changed recently.
+
+## Testing
+
+``` bash
+$ vendor/bin/phpunit test
+```
 
 ## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+To contribute and extend the scope of this package,
+Please check out [CONTRIBUTING](CONTRIBUTING.md) file for detailed contribution guidelines.
 
-## Security Vulnerabilities
+## Credits
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+YouLearn is created and maintained by `Ibraheem ADENIYI`.
 
-### License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+## License
+
+YouLearn is released under the MIT Licence. See the bundled [LICENSE](LICENSE.md) file for details.
