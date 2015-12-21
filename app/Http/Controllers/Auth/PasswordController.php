@@ -45,9 +45,10 @@ class PasswordController extends Controller
      */
     public function getEmailPage()
     {
-        $categories = Category::orderBy('name', 'asc')->get();
+        $recent = $this->recentVideos();
+        $categories = $this->getCategory();
 
-        return view('pages.passwordreset', compact('categories'));
+        return view('pages.passwordreset', compact('categories', 'recent'));
     }
 
     /**
@@ -58,9 +59,10 @@ class PasswordController extends Controller
      */
     public function passwordPage()
     {
-        $categories = Category::orderBy('name', 'asc')->get();
+        $recent = $this->recentVideos();
+        $categories = $this->getCategory();
 
-        return view('pages.passwordreset', compact('categories'));
+        return view('pages.passwordreset', compact('categories', 'recent'));
     }
 
     /**
@@ -109,10 +111,11 @@ class PasswordController extends Controller
             throw new NotFoundHttpException;
         }
 
+        $recent = $this->recentVideos();
+        $categories = $this->getCategory();
         $data = PasswordReset::whereToken($token)->first();
-        $categories = Category::orderBy('name', 'asc')->get();
 
-        return view('pages.newpassword', compact('categories'))->with(['token' => $token, 'email' => $data->email]);
+        return view('pages.newpassword', compact('categories', 'recent'))->with(['token' => $token, 'email' => $data->email]);
     }
 
     /**

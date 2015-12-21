@@ -6,6 +6,8 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class IndexTest extends TestCase
 {
+    use YouLearn\Test\CreateTrait;
+
     /**
      * A basic test example.
      *
@@ -40,6 +42,44 @@ class IndexTest extends TestCase
     }
 
     /**
+     * Test Load Registration Page
+     *
+     * @return void
+     */
+    public function testSeeRegistrationPage()
+    {
+        $this->visit('/')
+             ->click('Register')
+             ->see('Registration Form');
+    }
+
+    /**
+     * Test Load Load Page
+     *
+     * @return void
+     */
+    public function testSeeLoginPage()
+    {
+        $this->visit('/')
+             ->click('Login')
+             ->see('Please sign in');
+    }
+
+    // public function testSearch()
+    // {
+    //     $user = $this->createUser();
+
+    //     $this->createCategory();
+    //     $this->createAvatar();
+
+    //     Auth::login($user);
+
+    //     $this->post('/search', ['Test'], ['text/HTML']);
+
+    //     $this->assertResponseOk();
+    // }
+
+    /**
      * Test load dashboard
      *
      * @return void
@@ -53,6 +93,22 @@ class IndexTest extends TestCase
              ->press('Sign In');
 
         $this->call('GET', '/');
+
+        $this->assertResponseOk();
+    }
+
+    public function testLogout()
+    {
+        $user = $this->createUser();
+
+        $this->createCategory();
+        $this->createAvatar();
+
+        Auth::login($user);
+
+        $this->visit('/')
+             ->see('Logout')
+             ->click('Logout');
 
         $this->assertResponseOk();
     }
