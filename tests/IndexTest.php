@@ -18,6 +18,8 @@ class IndexTest extends TestCase
 
     /**
      * Test Home Page LoadsCorrectly
+     *
+     * @return void
      */
     public function testHomePageLoadsCorrectly()
     {
@@ -28,6 +30,8 @@ class IndexTest extends TestCase
 
     /**
      * Test visit home page
+     *
+     * @return void
      */
     public function testHomePage()
     {
@@ -37,6 +41,8 @@ class IndexTest extends TestCase
 
     /**
      * Test load dashboard
+     *
+     * @return void
      */
     public function testLoadDashboard()
     {

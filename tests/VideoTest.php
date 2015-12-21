@@ -14,6 +14,8 @@ class VideoTest extends TestCase
 
     /**
      * Test video upload
+     *
+     * @return void
      */
     public function testUploadSuccessful()
     {
@@ -36,6 +38,8 @@ class VideoTest extends TestCase
 
     /**
      * Test video update
+     *
+     * @return void
      */
     public function testOnlyLoggedUserCanDeleteVideo()
     {

@@ -20,6 +20,9 @@ class UserController extends Controller
 
     /**
      * Load edit page
+     *
+     * @param  Request $request
+     * @return \Illuminate\Http\Response
      */
     public function editPage(Request $request)
     {
@@ -34,6 +37,7 @@ class UserController extends Controller
      * Insert avatar details to database
      *
      * @param  Request $request
+     * @return \Illuminate\Http\Response
      */
     public function uploadAvatar(Request $request)
     {
@@ -46,7 +50,8 @@ class UserController extends Controller
     /**
      * Get the videos uploaded by a particular use
      *
-     * @param  $id
+     * @param  Request $request
+     * @return \Illuminate\Http\Response
      */
     public function myVideos(Request $request)
     {
@@ -57,10 +62,11 @@ class UserController extends Controller
         return view('pages.videos', compact('videos', 'categories', 'recent'));
     }
 
-    /*
+    /**
     * Uploads avatar image to cloudinary
     *
-    * @return url
+    * @param $avatat
+    * @return  string
     */
     protected function getImageFileUrl($avatar)
     {
@@ -73,8 +79,7 @@ class UserController extends Controller
     /**
      * Update user details
      *
-     * @param  $request
-     *
+     * @param  $request     *
      * @return json
      */
     public function userUpdate(Request $request)

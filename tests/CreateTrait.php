@@ -11,6 +11,8 @@ trait CreateTrait
 {
     /**
      * Create test user
+     *
+     * @return \Illuminate\Support\Collection
      */
     public function createUser()
     {
@@ -26,6 +28,8 @@ trait CreateTrait
 
     /**
      * Create Avatar
+     *
+     * @return \Illuminate\Support\Collection
      */
     public function createAvatar()
     {
@@ -37,6 +41,8 @@ trait CreateTrait
 
     /**
      * Create Category
+     *
+     * @return \Illuminate\Support\Collection
      */
     public function createCategory()
     {
@@ -47,6 +53,8 @@ trait CreateTrait
 
     /**
      * Create Video
+     *
+     * @return \Illuminate\Support\Collection
      */
     public function createVideo()
     {

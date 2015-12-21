@@ -6,10 +6,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Video extends Model
 {
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
     protected $fillable = ['user_id', 'category_id', 'title', 'url', 'description', 'slug'];
 
     /**
      * Video category relationship
+     *
+     * @param  none
      */
     public function category()
     {
@@ -18,6 +25,8 @@ class Video extends Model
 
     /**
      * Video user relationship
+     *
+     * @param  none
      */
     public function user()
     {

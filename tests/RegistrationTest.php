@@ -8,6 +8,8 @@ class RegistrationTest extends TestCase
 {
     /**
      * Test Registration Page LoadsCorrectly
+     *
+     * @return void
      */
     public function testRegistrationPageLoadsCorrectly()
     {
@@ -18,6 +20,8 @@ class RegistrationTest extends TestCase
 
     /**
      * Test User registration
+     *
+     * @return void
      */
     public function testSuccessfulRegistration()
     {

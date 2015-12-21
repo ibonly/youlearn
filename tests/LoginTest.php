@@ -11,6 +11,8 @@ class LoginTest extends TestCase
 
     /**
      * Test Login Page LoadsCorrectly
+     *
+     * @return void
      */
     public function testLoginPageLoadsCorrectly()
     {
@@ -21,6 +23,8 @@ class LoginTest extends TestCase
 
     /**
      * Test User successful login
+     *
+     * @return void
      */
     public function testSuccessfulLogin()
     {
@@ -36,6 +40,8 @@ class LoginTest extends TestCase
 
     /**
      * Test invalid login details
+     *
+     * @return void
      */
     public function testInvalidLogin()
     {
