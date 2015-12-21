@@ -14,6 +14,7 @@ class CategoryController extends Controller
      * Insert category into database
      *
      * @param  Request $request
+     * @return \Illuminate\Support\Collection
      */
     public function create(Request $request)
     {
@@ -26,6 +27,7 @@ class CategoryController extends Controller
      * Get videos in a particular category
      *
      * @param  $name
+     * @return \Illuminate\Http\Response
      */
     public function getVideoInCategory($name)
     {

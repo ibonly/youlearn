@@ -44,6 +44,9 @@ class AuthController extends Controller
 
     /**
      * Load login page
+     *
+     * @param none
+     * @return \Illuminate\Http\Response
      */
     public function loginPage()
     {
@@ -55,6 +58,9 @@ class AuthController extends Controller
 
     /**
      * Load registration page
+     *
+     * @param none
+     * @return \Illuminate\Http\Response
      */
     public function registrationPage()
     {
@@ -68,6 +74,7 @@ class AuthController extends Controller
      * Logout page
      *
      * @param  Request $request
+     * @return \Illuminate\Http\Response
      */
     public function getLogout(Request $request)
     {
@@ -95,7 +102,7 @@ class AuthController extends Controller
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
-     * @return User
+     * @return \Illuminate\Support\Collection
      */
     protected function create(Request $request)
     {
@@ -113,6 +120,7 @@ class AuthController extends Controller
      * Create a default avatar
      *
      * @param  Request $request
+     * @return \Illuminate\Support\Collection
      */
     protected function createDefaultAvatar(Request $request)
     {
@@ -125,6 +133,9 @@ class AuthController extends Controller
 
     /**
      * User Registration
+     *
+     * @param  Request $request
+     * @return Json
      */
     public function register(Request $request)
     {
@@ -150,24 +161,22 @@ class AuthController extends Controller
     }
 
     /**
-     * User loging
+     * User login
+     *
+     * @param  Request $request
+     * @return Json
      */
     public function postLogin(Request $request)
     {
         $login = Auth::attempt($request->only(['username', 'password']));
 
-        if (! $login)
-        {
-
-            // $request->session()->put('user', Auth::user());
+        if (! $login) {
             $this->response =
             [
                 "message"       => "login failed",
                 "status_code"   => 400,
             ];
-        }
-        else
-        {
+        } else {
             $this->response =
             [
                 "message"       => "login successful",

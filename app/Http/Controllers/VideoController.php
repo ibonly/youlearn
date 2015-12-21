@@ -18,6 +18,9 @@ class VideoController extends Controller
 
     /**
      * Load video upload page
+     *
+     * @param  none
+     * @return \Illuminate\Http\Response
      */
     public function uploadPage()
     {
@@ -30,7 +33,8 @@ class VideoController extends Controller
     /**
      * Load play video page
      *
-     * @param  $id
+     * @param  $title
+     * @return \Illuminate\Http\Response
      */
     public function playVideo($title)
     {
@@ -45,6 +49,9 @@ class VideoController extends Controller
 
     /**
      * Load update video upload page
+     *
+     * @param  $title
+     * @return \Illuminate\Http\Response
      */
     public function updatePage($title)
     {
@@ -59,6 +66,7 @@ class VideoController extends Controller
      * Get video ID from the URL
      *
      * @param  $url
+     * @return  int
      */
     public function getVideoId($url)
     {
@@ -77,8 +85,7 @@ class VideoController extends Controller
     /**
      * Insert video
      *
-     * @param $request
-     *
+     * @param  Request $request     *
      * @return json
      */
     public function uploadVideo(Request $request)
@@ -110,8 +117,7 @@ class VideoController extends Controller
     /**
      * Update video details
      *
-     * @param $request
-     *
+     * @param  Request $request     *
      * @return json
      */
     public function editVideo(Request $request)
@@ -137,8 +143,7 @@ class VideoController extends Controller
     /**
      * Delete video
      *
-     * @param  $id
-     *
+     * @param  $id      *
      * @return json
      */
     public function deleteVideo($id)

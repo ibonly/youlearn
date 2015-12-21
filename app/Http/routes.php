@@ -41,10 +41,6 @@ Route::group(['middleware' => 'guest'], function () {
         'uses' => 'Auth\AuthController@register'
     ]);
 
-    Route::post('/search', [
-        'uses' => 'SearchController@show'
-    ]);
-
     /*
     /-------------------------------------------------------------------------------
     / Password reset link request
@@ -81,6 +77,11 @@ Route::group(['middleware' => 'guest'], function () {
 
 });
 
+Route::post('/search', [
+    'uses' => 'SearchController@show',
+    'as'   => 'search'
+]);
+
 Route::get('/play/{title}', [
     'uses' => 'VideoController@playVideo',
     'as'   => 'play'
@@ -95,10 +96,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/home', [
         'uses' => 'IndexController@homePage',
         'as'   => 'home'
-    ]);
-
-    Route::post('/search', [
-        'uses' => 'SearchController@show'
     ]);
 
     Route::get('/user/details', [

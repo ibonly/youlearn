@@ -12,6 +12,9 @@ class IndexController extends Controller
 {
     /**
      * Index/home page
+     *
+     * @param  Request $request
+     * @return \Illuminate\Http\Response
      */
     public function homePage(Request $request)
     {

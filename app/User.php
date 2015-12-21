@@ -39,6 +39,8 @@ class User extends Model implements AuthenticatableContract,
 
     /**
      * User avatar relationship
+     *
+     * @param  none
      */
     public function avatar()
     {
@@ -47,6 +49,8 @@ class User extends Model implements AuthenticatableContract,
 
     /**
      * Video user relationship
+     *
+     * @param  none
      */
     public function video()
     {

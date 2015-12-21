@@ -50,7 +50,7 @@ class CreateCategoriesTable extends Migration
         ]);
         DB::table('categories')->insert([
             'id' => 6,
-            'name' => 'Goland',
+            'name' => 'Golang',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
         ]);

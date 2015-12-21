@@ -11,6 +11,7 @@
     <!-- CSS  -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Bitter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link href="{!! load_asset('/css/materialize.css') !!}" type="text/css" rel="stylesheet" media="screen,projection"/>
     <link href="{!! load_asset('/css/style.css') !!}" type="text/css" rel="stylesheet" media="screen,projection"/>
     <link href="{!! load_asset('/css/animate.css') !!}" type="text/css" rel="stylesheet" media="screen,projection"/>
@@ -30,13 +31,13 @@
         <div class="section">
 
             <div class="row">
-                <div class="col s12 m4 l8">
+                <div class="col s12 m12 l8">
 
                     @yield('content')
 
                 </div>
 
-                <div class="col s7 m4 offset-s6 hide-on-small-only right">
+                <div class="col s7 m4 offset-s6  hide-on-med-and-down right">
 
                     @include('sections.sidenav')
 
@@ -66,6 +67,7 @@
     $(document).ready(function(){
         $('select').material_select();
         $(".button-collapse").sideNav();
+        $('.tooltipped').tooltip({delay: 50});
     });
     new WOW().init();
     </script>

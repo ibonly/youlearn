@@ -39,6 +39,9 @@ class PasswordController extends Controller
 
     /**
      * Load the password reset page
+     *
+     * @param none
+     * @return \Illuminate\Http\Response
      */
     public function getEmailPage()
     {
@@ -49,6 +52,9 @@ class PasswordController extends Controller
 
     /**
      * Load a password reset page.
+     *
+     * @param none
+     * @return \Illuminate\Http\Response
      */
     public function passwordPage()
     {
@@ -59,6 +65,9 @@ class PasswordController extends Controller
 
     /**
      * postEmailForm
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\Response
      */
     public function postEmailForm(Request $request)
     {
@@ -74,7 +83,6 @@ class PasswordController extends Controller
                 "status_code"   => 400,
             ];
         } else {
-            //Send the reset link
             $response = Password::sendResetLink($request->only('email'), function (Message $message) {
                 $message->subject($this->getEmailSubject());
             });
@@ -91,6 +99,9 @@ class PasswordController extends Controller
 
     /**
      * getResetPage
+     *
+     * @param  $token
+     * @return \Illuminate\Http\Response
      */
     public function getResetPage($token = null)
     {
@@ -106,6 +117,9 @@ class PasswordController extends Controller
 
     /**
      * postResetCheckEmail
+     *
+     * @param  Request $request
+     * @return Json
      */
     public function postResetCheckEmail(Request $request)
     {

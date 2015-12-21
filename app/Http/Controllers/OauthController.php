@@ -1,4 +1,4 @@
-.<?php
+<?php
 
 namespace YouLearn\Http\Controllers;
 
@@ -29,7 +29,7 @@ class OauthController extends Controller
      * Create Avatar
      *
      * @param  $username
-     * @param  $ur
+     * @param  $url
      */
     public function createAvatar($username, $url)
     {
@@ -89,6 +89,8 @@ class OauthController extends Controller
 
     /**
      * userHasLoggedIn Redirect to main page
+     *
+     * @param  none
      */
     public function userHasLoggedIn()
     {

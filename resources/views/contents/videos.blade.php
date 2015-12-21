@@ -1,5 +1,8 @@
 <div class="row">
-<a href="/video/upload">Upload Videos</a><br />
+
+    <div class="col m12">
+        <a href="/video/upload" class="waves-effect waves-light btn btn-small right tooltipped" data-position="top" data-delay="50" data-tooltip="ADD VIDEO"><i class="material-icons">add</i></a>
+    </div>
 
     @forelse($videos as $video)
 
@@ -14,7 +17,7 @@
 
     @empty
 
-        <p>You don't have any video uploaded</p>
+        <p>No video to display</p>
 
     @endforelse
 

@@ -15,6 +15,9 @@ abstract class Controller extends BaseController
 
     /**
      * Get all categories in ascending order
+     *
+     * @param  none
+     * @return \Illuminate\Support\Collection
      */
     public function getCategory()
     {
@@ -23,6 +26,9 @@ abstract class Controller extends BaseController
 
     /**
      * Get 5 most recent videos added
+     *
+     * @param  none
+     * @return \Illuminate\Support\Collection
      */
     public function recentVideos()
     {

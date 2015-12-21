@@ -8,8 +8,10 @@ class RegistrationTest extends TestCase
 {
     /**
      * Test Registration Page LoadsCorrectly
+     *
+     * @return void
      */
-    public function testRegistrationPageLoadsCorrectly ()
+    public function testRegistrationPageLoadsCorrectly()
     {
         $this->call('GET', '/register');
 
@@ -18,8 +20,10 @@ class RegistrationTest extends TestCase
 
     /**
      * Test User registration
+     *
+     * @return void
      */
-    public function testSuccessfulRegistration ()
+    public function testSuccessfulRegistration()
     {
         $this->visit('/register')
              ->see('Registration Form')

@@ -1,4 +1,4 @@
-<h2>Video Upload</h2>
+<h2>Update Video</h2>
 <div class="mid-form">
 
     <form id="video-edit" action="{{ url('/video/edit') }}" method="post">
