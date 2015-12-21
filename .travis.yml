@@ -30,14 +30,12 @@ before_script:
   - if [[ $setup = 'lowest' ]]; then travis_retry composer update --prefer-source --prefer-lowest --prefer-stable; fi
   - php artisan migrate --force
 
-install:
-  - curl -s http://getcomposer.org/installer | php
-  - php composer.phar install --dev --no-interaction
+install: travis_retry composer install --no-interaction
 
 script:
   - mkdir -p build/logs
-  - php vendor/bin/phpunit -c phpunit.xml.dist
   - phpunit --coverage-clover build/logs/clover.xml
+  "phpunit --coverage-text --coverage-clover build/logs/clover.xml"
   - vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover
 
 after_script:
@@ -45,6 +43,4 @@ after_script:
   - if [[ $TRAVIS_PHP_VERSION != 'hhvm' && $TRAVIS_PHP_VERSION != '7.0' ]]; then php vendor/bin/ocular code-coverage:upload --format=php-clover coverage.clover; fi
 
 after_success:
-  - travis_retry php vendor/bin/coveralls
-  # or enable logging
   - travis_retry php vendor/bin/coveralls -v
