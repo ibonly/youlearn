@@ -5,7 +5,6 @@
 [![Quality Score](https://img.shields.io/scrutinizer/g/andela-iadeniyi/youlearn.svg?style=flat-square)](https://scrutinizer-ci.com/g/andela-iadeniyi/youlearn)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/andela-iadeniyi/youlearn/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/andela-iadeniyi/youlearn/?branch=master)
 [![Code Climate](https://codeclimate.com/github/andela-iadeniyi/youlearn/badges/gpa.svg)](https://codeclimate.com/github/andela-iadeniyi/youlearn)
-[![Code Climate](https://codeclimate.com/github/andela-iadeniyi/youlearn/badges/gpa.svg)](https://codeclimate.com/github/andela-iadeniyi/youlearn)
 
 [![Coverage Status](https://coveralls.io/repos/andela-iadeniyi/youlearn/badge.svg?branch=staging&service=github)](https://coveralls.io/github/andela-iadeniyi/youlearn?branch=staging)
 
