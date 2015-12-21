@@ -7,7 +7,7 @@
 [![Code Climate](https://codeclimate.com/github/andela-iadeniyi/youlearn/badges/gpa.svg)](https://codeclimate.com/github/andela-iadeniyi/youlearn)
 [![Test Coverage](https://codeclimate.com/github/andela-iadeniyi/youlearn/badges/coverage.svg)](https://codeclimate.com/github/andela-iadeniyi/youlearn/coverage)
 
-[![Coverage Status](https://coveralls.io/repos/andela-iadeniyi/youlearn/badge.svg?branch=master&service=github)](https://coveralls.io/github/andela-iadeniyi/youlearn?branch=master)
+[![Coverage Status](https://coveralls.io/repos/andela-iadeniyi/youlearn/badge.svg?branch=staging&service=github)](https://coveralls.io/github/andela-iadeniyi/youlearn?branch=staging)
 
 Visit [YouLearn demo page](https://youlearn.herokuapp.com/) to view the project demo.
 
