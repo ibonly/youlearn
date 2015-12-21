@@ -65,20 +65,6 @@ class IndexTest extends TestCase
              ->see('Please sign in');
     }
 
-    // public function testSearch()
-    // {
-    //     $user = $this->createUser();
-
-    //     $this->createCategory();
-    //     $this->createAvatar();
-
-    //     Auth::login($user);
-
-    //     $this->post('/search', ['Test'], ['text/HTML']);
-
-    //     $this->assertResponseOk();
-    // }
-
     /**
      * Test load dashboard
      *
@@ -97,6 +83,11 @@ class IndexTest extends TestCase
         $this->assertResponseOk();
     }
 
+    /**
+     * Test logut route
+     *
+     * @return void
+     */
     public function testLogout()
     {
         $user = $this->createUser();

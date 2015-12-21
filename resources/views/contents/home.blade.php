@@ -8,7 +8,7 @@
         <div id="title" class="truncate">{{ $video->title }}</div>
         <a class="waves-effect waves-light btn" href="/play/{{ $video->slug }}"><i class="material-icons left">visibility</i>view</a><br />
                 @can( 'see-edit', $video )
-                    <a href="/video/{{ $video->slug }}/edit"> EDIT</a>
+                    <a href="/video/{{ $video->slug }}/edit">EDIT</a>
                 @endcan
             <br />
     </div>

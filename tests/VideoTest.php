@@ -37,14 +37,38 @@ class VideoTest extends TestCase
     }
 
     /**
-     * Test video update
+     * Test video upload
      *
      * @return void
      */
-    public function testOnlyLoggedUserCanDeleteVideo()
+    public function testVideoUploadError()
     {
-        $response = $this->call('DELETE', '/video/1/delete');
+        $user = $this->createUser();
 
-        $this->assertEquals(500, $response->status());
+        $this->createCategory();
+        $this->createAvatar();
+
+        Auth::login($user);
+
+        $this->visit('/video/upload')
+             ->see('Video Upload')
+             ->type('Test Title', 'title')
+             ->type('youtube_video', 'url')
+             ->press('Submit')
+             ->notSeeInDatabase('videos', ['title' => 'Test Title']);
+    }
+
+    public function testEditVideo()
+    {
+        $user = $this->createUser();
+
+        $this->createCategory();
+        $this->createAvatar();
+
+        Auth::login($user);
+
+        $this->put('/video/Test-title/edit', ['title' => 'New Title'], ['text/html']);
+
+        $this->assertResponseStatus(500);
     }
 }

@@ -43,9 +43,6 @@ to pull in the project dependencies.
 - Browse videos by category
 - View single video
 
-## Change log
-
-Please check out [CHANGELOG](CHANGELOG.md) file for information on what has changed recently.
 
 ## Testing
 
@@ -56,7 +53,7 @@ $ vendor/bin/phpunit test
 ## Contributing
 
 To contribute and extend the scope of this package,
-Please check out [CONTRIBUTING](CONTRIBUTING.md) file for detailed contribution guidelines.
+Please check out [CONTRIBUTING](CONTRIBUTING) file for detailed contribution guidelines.
 
 ## Credits
 
@@ -65,4 +62,4 @@ YouLearn is created and maintained by `Ibraheem ADENIYI`.
 
 ## License
 
-YouLearn is released under the MIT Licence. See the bundled [LICENSE](LICENSE.md) file for details.
+YouLearn is released under the MIT Licence. See the bundled [LICENSE](LICENSE) file for details.
