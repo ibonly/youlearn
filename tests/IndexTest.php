@@ -11,7 +11,7 @@ class IndexTest extends TestCase
      *
      * @return void
      */
-    public function testExample ()
+    public function testExample()
     {
         $this->assertTrue(true);
     }
@@ -19,7 +19,7 @@ class IndexTest extends TestCase
     /**
      * Test Home Page LoadsCorrectly
      */
-    public function testHomePageLoadsCorrectly ()
+    public function testHomePageLoadsCorrectly()
     {
         $this->call('GET', '/');
 
@@ -29,7 +29,7 @@ class IndexTest extends TestCase
     /**
      * Test visit home page
      */
-    public function testHomePage ()
+    public function testHomePage()
     {
         $this->visit('/')
              ->see('Welcome to YouLearn');
@@ -38,7 +38,7 @@ class IndexTest extends TestCase
     /**
      * Test load dashboard
      */
-    public function testLoadDashboard ()
+    public function testLoadDashboard()
     {
         $this->visit('/login')
              ->see('Please sign in')

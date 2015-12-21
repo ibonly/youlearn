@@ -10,60 +10,12 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class VideoTest extends TestCase
 {
-    /**
-     * Create test user
-     */
-    public function createUser ()
-    {
-        return User::create([
-            'username'   => 'testuser',
-            'email'      => 'email@test.com',
-            'password'   => bcrypt('testpassword'),
-            'facebookID' => 0,
-            'twitterID'  => 0,
-            'githubID'   => 0
-        ]);
-    }
-
-    /**
-     * Create Avatar
-     */
-    public function createAvatar ()
-    {
-        Avatar::create([
-            'user_id' => 1,
-            'avatarURL' => 'asdada'
-        ]);
-    }
-
-    /**
-     * Create Category
-     */
-    public function createCategory ()
-    {
-        Category::create([
-            'name' => 'Test Category'
-        ]);
-    }
-
-    /**
-     * Create Video
-     */
-    public function createVideo ()
-    {
-        Video::create([
-            'user_id' => 1,
-            'category_id' => 1,
-            'title' => 'Test Title',
-            'url' => 'sample video',
-            'description' => 'Sample video description'
-        ]);
-    }
+    use YouLearn\Test\CreateTrait;
 
     /**
      * Test video upload
      */
-    public function testUploadSuccessful ()
+    public function testUploadSuccessful()
     {
         $user = $this->createUser();
 
@@ -78,6 +30,17 @@ class VideoTest extends TestCase
              ->select(1, 'category_id')
              ->type('Test Title', 'title')
              ->type('youtube_video', 'url')
-             ->press('Submit');
+             ->press('Submit')
+             ->seeInDatabase('videos', ['title' => 'Test Title']);
+    }
+
+    /**
+     * Test video update
+     */
+    public function testOnlyLoggedUserCanDeleteVideo()
+    {
+        $response = $this->call('DELETE', '/video/1/delete');
+
+        $this->assertEquals(500, $response->status());
     }
 }

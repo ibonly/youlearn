@@ -56,20 +56,6 @@ body
 .twitter
 {
     background: #63D8EC;
-}
-
-.github
-{
-    background: #C5C5C5;
-}
-
-.facebook
-{
-    background: #528EDA;
-}
-
-.facebook, .twitter, .github
-{
     overflow: hidden;
     padding: 5px;
     color: #ffffff;
@@ -82,11 +68,46 @@ body
     float: right;
 }
 
-.facebook a, .twitter a, .github a
+.github
+{
+    background: #C5C5C5;
+    overflow: hidden;
+    padding: 5px;
+    color: #ffffff;
+    font-weight: bold;
+    width: 15%;
+    text-align: right;
+    border-radius: 10px;
+    padding-right: 15px;
+    margin: 10px;
+    float: right;
+}
+
+.facebook
+{
+    background: #528EDA;
+    overflow: hidden;
+    padding: 5px;
+    color: #ffffff;
+    font-weight: bold;
+    width: 15%;
+    text-align: right;
+    border-radius: 10px;
+    padding-right: 15px;
+    margin: 10px;
+    float: right;
+}
+
+.github a
 {
     color: #ffffff;
-    padding-left: 40px;
-    padding-right: 20px;
+    margin-top: 20px;
+}
+
+.facebook a, .twitter a
+{
+    color: #ffffff;
+    padding-left: 10px;
 }
 
 .form-update

@@ -29,7 +29,7 @@ class TestCase extends Illuminate\Foundation\Testing\TestCase
         return $app;
     }
 
-    public function prepareTestDB ()
+    public function prepareTestDB()
     {
         Config::set('database.default', 'sqlite');
         Artisan::call('migrate:refresh');

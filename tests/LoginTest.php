@@ -7,10 +7,12 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class LoginTest extends TestCase
 {
+    use YouLearn\Test\CreateTrait;
+
     /**
      * Test Login Page LoadsCorrectly
      */
-    public function testLoginPageLoadsCorrectly ()
+    public function testLoginPageLoadsCorrectly()
     {
         $this->call('GET', '/login');
 
@@ -18,24 +20,9 @@ class LoginTest extends TestCase
     }
 
     /**
-     * Create test user
-     */
-    public function createUser ()
-    {
-        User::create([
-            'username'   => 'testuser',
-            'email'      => 'email@test.com',
-            'password'   => bcrypt('testpassword'),
-            'facebookID' => 0,
-            'twitterID'  => 0,
-            'githubID'   => 0
-        ]);
-    }
-
-    /**
      * Test User successful login
      */
-    public function testSuccessfulLogin ()
+    public function testSuccessfulLogin()
     {
         $this->createUser();
 
@@ -50,7 +37,7 @@ class LoginTest extends TestCase
     /**
      * Test invalid login details
      */
-    public function testInvalidLogin ()
+    public function testInvalidLogin()
     {
         $this->createUser();
 
