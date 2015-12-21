@@ -2,6 +2,7 @@
 
 namespace YouLearn\Test;
 
+use Auth;
 use YouLearn\User;
 use YouLearn\Video;
 use YouLearn\Avatar;
@@ -59,6 +60,7 @@ trait CreateTrait
     public function createVideo()
     {
         Video::create([
+            'id'          => 1,
             'user_id'     => 1,
             'category_id' => 1,
             'title'       => 'Test-Title',
@@ -66,5 +68,19 @@ trait CreateTrait
             'description' => 'Sample video description',
             'slug'        => 'Test-Title'
         ]);
+    }
+
+    /**
+     * Log user in and create required tables
+     */
+    public function login()
+    {
+        $user = $this->createUser();
+
+        $this->createCategory();
+        $this->createAvatar();
+        $this->createVideo();
+
+        Auth::login($user);
     }
 }

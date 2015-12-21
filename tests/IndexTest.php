@@ -102,12 +102,7 @@ class IndexTest extends TestCase
      */
     public function testLogout()
     {
-        $user = $this->createUser();
-
-        $this->createCategory();
-        $this->createAvatar();
-
-        Auth::login($user);
+        $this->login();
 
         $this->visit('/')
              ->see('Logout')

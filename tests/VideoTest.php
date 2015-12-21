@@ -19,12 +19,7 @@ class VideoTest extends TestCase
      */
     public function testUploadSuccessful()
     {
-        $user = $this->createUser();
-
-        $this->createCategory();
-        $this->createAvatar();
-
-        Auth::login($user);
+        $this->login();
 
         $this->visit('/video/upload')
              ->see('Video Upload')
@@ -43,12 +38,7 @@ class VideoTest extends TestCase
      */
     public function testVideoUploadError()
     {
-        $user = $this->createUser();
-
-        $this->createCategory();
-        $this->createAvatar();
-
-        Auth::login($user);
+        $this->login();
 
         $this->visit('/video/upload')
              ->see('Video Upload')
@@ -77,13 +67,7 @@ class VideoTest extends TestCase
      */
     public function testPlayVideoPage()
     {
-        $user = $this->createUser();
-
-        $this->createCategory();
-        $this->createAvatar();
-        $this->createVideo();
-
-        Auth::login($user);
+        $this->login();
 
         $this->visit('/')
              ->see('VIEW')
