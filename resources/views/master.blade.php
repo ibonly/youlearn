@@ -30,13 +30,13 @@
         <div class="section">
 
             <div class="row">
-                <div class="col s12 m4 l8">
+                <div class="col s12 m12 l8">
 
                     @yield('content')
 
                 </div>
 
-                <div class="col s7 m4 offset-s6 hide-on-small-only right">
+                <div class="col s7 m4 offset-s6  hide-on-med-and-down right">
 
                     @include('sections.sidenav')
 
@@ -66,6 +66,7 @@
     $(document).ready(function(){
         $('select').material_select();
         $(".button-collapse").sideNav();
+        $('.tooltipped').tooltip({delay: 50});
     });
     new WOW().init();
     </script>
