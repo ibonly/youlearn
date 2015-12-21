@@ -47,15 +47,9 @@ Route::group(['middleware' => 'guest'], function () {
     /-------------------------------------------------------------------------------
     */
 
-    Route::get('passwordreset', [
+    Route::get('/passwordreset', [
         'uses' => 'Auth\PasswordController@passwordPage',
-        'as'   => 'passwordreset',
-        'middleware'   => ['guest']
-    ]);
-
-    Route::get('password/email', [
-        'uses' =>'Auth\PasswordController@getEmailPage',
-        'as'   => "passwordreset"
+        'as'   => 'passwordreset'
     ]);
 
     Route::post('password/email', [

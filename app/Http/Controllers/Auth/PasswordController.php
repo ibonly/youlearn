@@ -4,9 +4,9 @@ namespace YouLearn\Http\Controllers\Auth;
 
 use YouLearn\User;
 use YouLearn\Category;
-use YouLearn\PasswordReset;
 use Illuminate\Mail\Message;
 use Illuminate\Http\Request;
+use YouLearn\Password_Reset;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Password;
 use YouLearn\Http\Controllers\Controller;
@@ -35,20 +35,6 @@ class PasswordController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
-    }
-
-    /**
-     * Load the password reset page
-     *
-     * @param none
-     * @return \Illuminate\Http\Response
-     */
-    public function getEmailPage()
-    {
-        $recent = $this->recentVideos();
-        $categories = $this->getCategory();
-
-        return view('pages.passwordreset', compact('categories', 'recent'));
     }
 
     /**
@@ -113,7 +99,7 @@ class PasswordController extends Controller
 
         $recent = $this->recentVideos();
         $categories = $this->getCategory();
-        $data = PasswordReset::whereToken($token)->first();
+        $data = Password_Reset::whereToken($token)->first();
 
         return view('pages.newpassword', compact('categories', 'recent'))->with(['token' => $token, 'email' => $data->email]);
     }
@@ -126,7 +112,7 @@ class PasswordController extends Controller
      */
     public function postResetCheckEmail(Request $request)
     {
-        $status = PasswordReset::whereEmail($request->only('email'))->first();
+        $status = Password_Reset::whereEmail($request->only('email'))->first();
         $response = [];
 
         if ($status === null) {

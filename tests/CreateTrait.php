@@ -18,7 +18,7 @@ trait CreateTrait
     {
         return User::create([
             'username'   => 'testuser',
-            'email'      => 'email@test.com',
+            'email'      => 'ibonly01@gmail.com',
             'password'   => bcrypt('testpassword'),
             'facebookID' => 0,
             'twitterID'  => 0,

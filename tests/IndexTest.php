@@ -31,6 +31,18 @@ class IndexTest extends TestCase
     }
 
     /**
+     * Test view has categories
+     *
+     * @return void
+     */
+    public function testVIewHasCategory()
+    {
+        $this->visit('/');
+
+        $this->assertViewHas('categories');
+    }
+
+    /**
      * Test visit home page
      *
      * @return void

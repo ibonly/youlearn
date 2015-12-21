@@ -1,4 +1,4 @@
-<div class="mid-form">
+<div class=" row mid-form">
 
     <form class="form-signup" id="registration_form" action="{{ url('register') }}" method="post">
 
@@ -40,4 +40,8 @@
 
     </form>
 
+</div>
+
+<div class="row">
+    <a href="/login">Sign In</a> | <a href="/passwordreset">Forgot Your Password</a>
 </div>

@@ -58,17 +58,36 @@ class VideoTest extends TestCase
              ->notSeeInDatabase('videos', ['title' => 'Test Title']);
     }
 
-    public function testEditVideo()
+    /**
+     * Test User cannot edit video
+     *
+     * @return void
+     */
+    public function testCannotEditVideo()
+    {
+        $this->put('/video/Test-title/edit', ['title' => 'New Title'], ['text/html']);
+
+        $this->assertResponseStatus(500);
+    }
+
+    /**
+     * test Play Video
+     *
+     * @return void
+     */
+    public function testPlayVideoPage()
     {
         $user = $this->createUser();
 
         $this->createCategory();
         $this->createAvatar();
+        $this->createVideo();
 
         Auth::login($user);
 
-        $this->put('/video/Test-title/edit', ['title' => 'New Title'], ['text/html']);
-
-        $this->assertResponseStatus(500);
+        $this->visit('/')
+             ->see('VIEW')
+             ->click('view')
+             ->see('Created on');
     }
 }
