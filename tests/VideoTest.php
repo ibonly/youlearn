@@ -43,7 +43,6 @@ class VideoTest extends TestCase
      */
     public function testVideoIsNotYoutube()
     {
-        $video = new VideoController();
         $videoID = 'https://www.yahoo.com/watch?v=7TF00hJI78Y';
 
         $this->assertTrue($this->video->youtubeExist($videoID));
@@ -136,7 +135,7 @@ class VideoTest extends TestCase
      *
      * @return void
      */
-    public function testDeleteVide()
+    public function testDeleteVideo()
     {
         $this->login();
 

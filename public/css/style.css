@@ -19,11 +19,14 @@ body
     overflow: hidden;
     background: #ffffff;
     width: 100%;
+    box-shadow: 0 1px 1px rgba(0,0,0,.25);
 }
 .recent-list li
 {
+    padding: 5px;
     overflow: hidden;
     color: #333;
+    border-bottom: 1px solid #eee;
 }
 .recent-list a
 {
@@ -37,7 +40,7 @@ body
 .recent-list #side_title
 {
     font-size: 12px;
-    width: 80%;
+    width: 77%;
     float: right;
 }
 .recent-list small
@@ -53,61 +56,40 @@ body
     border-radius: 500px;
 }
 
-.twitter
+#show-video .btn
 {
-    background: #63D8EC;
+    margin-bottom: 10px;
+}
+
+#edit-link
+{
+    position: absolute;
+    z-index: 9999999999;
+    color: #7FB06F;
+    padding-left: 6px;
+    font-size: 20px;
+}
+
+.delete
+{
+    color: blue;
+}
+
+#edit-title
+{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.social_login
+{
     overflow: hidden;
     padding: 5px;
-    color: #ffffff;
-    font-weight: bold;
-    width: 15%;
+    width: 179px;
     text-align: right;
-    border-radius: 10px;
-    padding-right: 15px;
     margin: 10px;
+    margin-right: 2px;
     float: right;
-}
-
-.github
-{
-    background: #C5C5C5;
-    overflow: hidden;
-    padding: 5px;
-    color: #ffffff;
-    font-weight: bold;
-    width: 15%;
-    text-align: right;
-    border-radius: 10px;
-    padding-right: 15px;
-    margin: 10px;
-    float: right;
-}
-
-.facebook
-{
-    background: #528EDA;
-    overflow: hidden;
-    padding: 5px;
-    color: #ffffff;
-    font-weight: bold;
-    width: 15%;
-    text-align: right;
-    border-radius: 10px;
-    padding-right: 15px;
-    margin: 10px;
-    float: right;
-}
-
-.github a
-{
-    color: #ffffff;
-    margin-top: 20px;
-}
-
-.facebook a, .twitter a
-{
-    color: #ffffff;
-    padding-left: 10px;
 }
 
 .form-update
@@ -176,6 +158,7 @@ h6
     font-size: 16px;
     font-weight: bold;
     text-transform: capitalize;
+    padding: 5px;
 }
 .play-details
 {

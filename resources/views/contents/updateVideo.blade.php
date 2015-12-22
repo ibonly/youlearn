@@ -28,7 +28,7 @@
 
         <button class="btn btn-lg btn-primary btn-block left" name="submit" type="submit">Update</button>
 
-        <a href="/video/{{ $video->id }}/delete " data-id="{{ $video->id }}" data-token="{{ csrf_token() }}" data-title="{{ $video->title }}" id="deleteVideo">DELETE</a>
+        <a href="/video/{{ $video->id }}/delete " data-id="{{ $video->id }}" data-token="{{ csrf_token() }}" data-title="{{ $video->title }}" id="deleteVideo" class="delet right"><i class="fa fa-trash fa-2x"></i></a>
 
 
     </form>

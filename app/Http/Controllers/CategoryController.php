@@ -33,7 +33,7 @@ class CategoryController extends Controller
     {
         $recent = $this->recentVideos();
         $categories = $this->getCategory();
-        $category = Category::where('name', $name)->first();
+        $category = Category::where('name', strtoupper($name))->first();
         $videos = Video::where('category_id', $category->id)->orderBy('created_at', 'desc')->paginate(9);
 
 

@@ -10,6 +10,7 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+// Route::pattern('name', '(?i)name(?-i)');
 Route::group(['middleware' => 'guest'], function () {
     Route::get('/', [
         'uses' => 'IndexController@homePage',

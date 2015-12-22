@@ -34,7 +34,7 @@ trait CreateTrait
      */
     public function createAvatar()
     {
-        Avatar::create([
+        return Avatar::create([
             'user_id'   => 1,
             'avatarURL' => 'asdada'
         ]);
@@ -47,7 +47,7 @@ trait CreateTrait
      */
     public function createCategory()
     {
-        Category::create([
+        return Category::create([
             'name' => 'Test Category'
         ]);
     }
@@ -59,7 +59,7 @@ trait CreateTrait
      */
     public function createVideo()
     {
-        Video::create([
+        return Video::create([
             'id'          => 1,
             'user_id'     => 1,
             'category_id' => 1,

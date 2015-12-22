@@ -30,6 +30,18 @@ class UserTest extends TestCase
     }
 
     /**
+     * Test User Video Relationship
+     */
+    public function testUserVideoRelationship()
+    {
+        $user = $this->createUser();
+                $this->createCategory();
+        $video = $this->createVideo();
+
+        $this->assertEquals($video->user_id, $video->user->id);
+    }
+
+    /**
      * Test user profile
      *
      * @return void
