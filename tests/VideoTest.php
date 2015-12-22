@@ -4,6 +4,7 @@ use YouLearn\User;
 use YouLearn\Video;
 use YouLearn\Avatar;
 use YouLearn\Category;
+use YouLearn\Http\Controllers\VideoController;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
@@ -29,6 +30,28 @@ class VideoTest extends TestCase
              ->type('youtube_video', 'url')
              ->press('Submit')
              ->seeInDatabase('videos', ['title' => 'Test Title']);
+    }
+
+    /**
+     * Test video is not youtube
+     */
+    public function testVideoIsNotYoutube()
+    {
+        $video = new VideoController();
+        $videoID = 'https://www.yahoo.com/watch?v=7TF00hJI78Y';
+
+        $this->assertTrue($video->youtubeExist($videoID));
+    }
+
+    /**
+     * Test video is youtube
+     */
+    public function testVideoIsYoutube()
+    {
+        $video = new VideoController();
+        $videoID = 'https://www.youtube.com/watch?v=7TF00hJI78Y';
+
+        $this->assertTrue($video->youtubeExist($videoID));
     }
 
     /**
@@ -101,5 +124,21 @@ class VideoTest extends TestCase
              ->see('Uploaded by');
 
         $this->assertViewHas('video');
+    }
+
+    /**
+     * Test delete video
+     *
+     * @return void
+     */
+    public function testDeleteVide()
+    {
+        $this->login();
+
+        $this->visit('/user/videos')
+             ->click('EDIT')
+             ->click('deleteVideo');
+
+        $this->assertResponseOk();
     }
 }

@@ -59,7 +59,7 @@ function confirmDelete (url, parameter, title)
     function ( isConfirm )
     {
         if( isConfirm ) {
-            processAjax("DELETE", url, parameter);
+            processAjax("GET", url, parameter);
         } else {
             cancelDeleteMessage( title );
         }

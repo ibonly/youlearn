@@ -64,7 +64,7 @@ trait CreateTrait
             'user_id'     => 1,
             'category_id' => 1,
             'title'       => 'Test Title',
-            'url'         => 'sample video',
+            'url'         => 'https://www.youtube.com/watch?v=7TF00hJI78Y',
             'description' => 'Sample video description',
             'slug'        => 'Test-Title'
         ]);

@@ -134,7 +134,7 @@ Route::group(['middleware' => 'auth'], function () {
         'as'   => 'video-edit'
     ]);
 
-    Route::delete('/video/{id}/delete', [
+    Route::get('/video/{id}/delete', [
         'uses' => 'VideoController@deleteVideo'
     ]);
 });

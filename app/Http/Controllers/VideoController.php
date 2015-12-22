@@ -10,6 +10,7 @@ use YouLearn\Http\Requests;
 use Illuminate\Http\Request;
 use Illuminate\Database\QueryException;
 use YouLearn\Http\Controllers\Controller;
+use YouLearn\Exceptions\InvlidYoutubeAddressException;
 
 class VideoController extends Controller
 {
@@ -63,6 +64,21 @@ class VideoController extends Controller
     }
 
     /**
+     * Validate the existence of a resource video.
+     *
+     * @param $videoID Youtube ID supplied by those posting
+     *
+     * @return bool
+     */
+    public function youtubeExist($videoID)
+    {
+        $theURL = "http://www.youtube.com/watch?v=$videoID&format=json";
+        $headers = strpos('youtube.com', $theURL);
+
+        return ($headers === false) ? true : false;
+    }
+
+    /**
      * Get video ID from the URL
      *
      * @param  $url
@@ -71,6 +87,10 @@ class VideoController extends Controller
     public function getVideoId($url)
     {
         $videoId = "";
+        if ($this->youtubeExist($url)) {
+            throw new InvlidYoutubeAddressException();
+
+        }
         $getID = explode('=', $url);
 
         if (count($getID) > 1) {
@@ -107,6 +127,11 @@ class VideoController extends Controller
         } catch (QueryException $e) {
             $this->response = [
                 "message"     => "Error uploading video",
+                "status_code" => 400
+            ];
+        } catch (InvlidYoutubeAddressException $e) {
+            $this->response = [
+                "message"     => $e->errorMessage(),
                 "status_code" => 400
             ];
         }
