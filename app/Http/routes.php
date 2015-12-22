@@ -97,7 +97,7 @@ Route::group(['middleware' => 'auth'], function () {
         'as'   => 'edit'
     ]);
 
-    Route::put('/user/update', [
+    Route::post('/user/update', [
         'uses' => 'UserController@userUpdate'
     ]);
 

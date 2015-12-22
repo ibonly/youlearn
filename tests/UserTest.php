@@ -43,4 +43,42 @@ class UserTest extends TestCase
              ->click('My Profile')
              ->see('Update Information');
     }
+
+    /**
+     * Test upload avatar
+     *
+     * @return void
+     */
+    public function testUploadAvatar()
+    {
+        $this->login();
+        $this->visit('/user/details');
+
+        $this->post('/user/avatar', ['avatar' => '/public/images/avatar.jpg']);
+    }
+
+    /**
+     * Test Update user details
+     *
+     * @return void
+     */
+    public function testProfileUpdate()
+    {
+        $this->login();
+        $this->visit('/user/details')
+             ->type('newemail@email.com', 'email')
+             ->type('newpassword', 'password')
+             ->press('Update')
+             ->seeInDatabase('users', ['email' => 'newemail@email.com']);
+    }
+
+    public function testUserVideo()
+    {
+        $this->login();
+
+        $this->visit('user/videos')
+             ->see('My Videos');
+
+        $this->assertViewHas('videos');
+    }
 }

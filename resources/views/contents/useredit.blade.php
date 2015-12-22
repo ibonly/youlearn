@@ -1,6 +1,6 @@
 <div class="col s7 m7 offset-s6 hide-on-small-only left">
 
-    <form class="user-update" id="registration_form" action="{{ url('/users/update') }}" method="post">
+    <form class="user-pdate" id="registration_form" action="{{ url('/user/update') }}" method="post">
 
         <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
         <h2 class="form-signin-heading" align="center">Update Information</h2>

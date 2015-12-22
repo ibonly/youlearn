@@ -246,7 +246,7 @@ $(document).ready(function(){
                     password   : password
                 }
             }
-        processAjax("PUT", data.url, data.parameter);
+        processAjax("POST", data.url, data.parameter);
 
         return false;
     });

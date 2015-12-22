@@ -1,6 +1,6 @@
 <div class="row">
-
     <div class="col m12">
+        <h3>My Videos</h3>
         <a href="/video/upload" class="waves-effect waves-light btn btn-small right tooltipped" data-position="top" data-delay="50" data-tooltip="ADD VIDEO"><i class="material-icons">add</i></a>
     </div>
 
