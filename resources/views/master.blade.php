@@ -58,7 +58,6 @@
     <script src="{!! load_asset('/js/index.js') !!}"></script>
     <script src="{!! load_asset('/js/wow.min.js') !!}"></script>
     <script src="{!! load_asset('/js/NewPassword.js') !!}"></script>
-    <script src="{!! load_asset('/js/PasswordReset.js') !!}"></script>
     <script type="text/javascript" src="{!! load_asset('/js/jquery-ui-1.11.1.js') !!}"></script>
     <script type="text/javascript" src="{!! load_asset('/js/sweetalert.min.js') !!}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>

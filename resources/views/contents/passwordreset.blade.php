@@ -4,7 +4,7 @@
 
     <p align="center"><hint>Your password reset link will be sent to the email provided</hint></p>
 
-    <form id="passord_reset_form" action="/password/email" method="post">
+    <form id="password_reset_form" action="/password/email" method="post">
 
         <input type="hidden" id="token" name="_token" value="{{ csrf_token() }}">
 

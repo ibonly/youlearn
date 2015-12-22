@@ -63,7 +63,7 @@ trait CreateTrait
             'id'          => 1,
             'user_id'     => 1,
             'category_id' => 1,
-            'title'       => 'Test-Title',
+            'title'       => 'Test Title',
             'url'         => 'sample video',
             'description' => 'Sample video description',
             'slug'        => 'Test-Title'

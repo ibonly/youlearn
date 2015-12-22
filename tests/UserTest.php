@@ -43,5 +43,4 @@ class UserTest extends TestCase
              ->click('My Profile')
              ->see('Update Information');
     }
-
 }

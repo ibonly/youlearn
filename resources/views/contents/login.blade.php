@@ -38,5 +38,5 @@
 </div>
 
 <div class="row">
-    <a href="/register">Sign Up</a> | <a href="/passwordreset">Forgot Your Password</a>
+    <a href="/register">Sign Up</a> | <a id="passwordreset" href="/passwordreset">Forgot Your Password</a>
 </div>

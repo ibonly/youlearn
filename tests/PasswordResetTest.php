@@ -1,5 +1,7 @@
 <?php
 
+use YouLearn\User;
+use YouLearn\Password_Reset;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
@@ -21,5 +23,4 @@ class PasswordResetTest extends TestCase
              ->click('Forgot Your Password')
              ->seePageIs('/passwordreset');
     }
-
 }

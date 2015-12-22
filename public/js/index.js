@@ -269,4 +269,23 @@ $(document).ready(function(){
         return false;
     });
 
+    $("#password_reset_form").submit( function () {
+        var url   = '/password/email';
+        var email = $('#email').val();
+        var token = $('#token').val();
+
+        var data =
+        {
+            url        : url,
+            parameter  :
+            {
+                _token : token,
+                email  : email
+            }
+        }
+        processAjax("POST", data.url, data.parameter);
+
+        return false;
+    });
+
 });
