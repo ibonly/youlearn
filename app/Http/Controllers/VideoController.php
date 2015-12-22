@@ -72,8 +72,7 @@ class VideoController extends Controller
      */
     public function youtubeExist($videoID)
     {
-        $theURL = "http://www.youtube.com/watch?v=$videoID&format=json";
-        $headers = strpos('youtube.com', $theURL);
+        $headers = strpos('youtube', $videoID);
 
         return ($headers === false) ? true : false;
     }
