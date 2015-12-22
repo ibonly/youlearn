@@ -85,6 +85,19 @@ class UserTest extends TestCase
     }
 
     /**
+     * @covers class::()
+     */
+    public function testEmptyInputUpdate()
+    {
+        $this->login();
+        $this->visit('/user/details')
+             ->type('newemail@email.com', 'email')
+             ->type('', 'password')
+             ->press('Update')
+             ->see('{"message":"Input field is empty","status_code":400}');
+    }
+
+    /**
      * Test view has user's video
      *
      * @return void

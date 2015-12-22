@@ -155,4 +155,22 @@ class VideoTest extends TestCase
 
         $this->assertInternalType('string', $this->video->getVideoId($videoID));
     }
+
+    public function testVideoCategoryRelationship()
+    {
+        $this->createUser();
+        $this->createCategory();
+        $video = $this->createVideo();
+
+        $this->assertEquals($video->category_id, $video->category->id);
+    }
+
+    public function testVideoUserRelationship()
+    {
+        $this->createUser();
+        $this->createCategory();
+        $video = $this->createVideo();
+
+        $this->assertEquals($video->user_id, $video->user->id);
+    }
 }

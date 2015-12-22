@@ -4,6 +4,7 @@ namespace YouLearn\Http\Controllers;
 
 use YouLearn\Video;
 use YouLearn\Category;
+use YouLearn\Exceptions\EmptyFieldException;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -33,5 +34,15 @@ abstract class Controller extends BaseController
     public function recentVideos()
     {
         return Video::orderBy('created_at', 'desc')->limit(5)->get();
+    }
+
+    public function cleanValue($value)
+    {
+            if (empty(trim($value)) || trim($value) == "") {
+                return true;
+            }
+
+            return $value;
+
     }
 }
