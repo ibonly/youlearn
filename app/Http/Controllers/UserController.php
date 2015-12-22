@@ -84,6 +84,13 @@ class UserController extends Controller
      */
     public function userUpdate(Request $request)
     {
+        if (empty($request->email) || $request->email == ""  || empty($request->password) || $request->password === null) {
+            $this->response = [
+                "message"     => "Field is empty",
+                "status_code" => 400
+            ];
+        }
+
         $update = User::where('username', $request->user()->username)->update(['email' => $request->email,'password' => bcrypt($request->password)]);
 
         if ($update) {

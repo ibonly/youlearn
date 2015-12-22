@@ -112,8 +112,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/user/videos', [
         'uses' => 'UserController@myVideos',
-        'as'   => 'myVideos',
-        'middleware'   => ['auth']
+        'as'   => 'myVideos'
     ]);
 
     Route::get('/video/upload', [
@@ -127,10 +126,10 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/video/{title}/edit', [
         'uses' => 'VideoController@updatePage',
-            'as'   => 'video-edit'
+        'as'   => 'video-edit'
     ]);
 
-    Route::put('/video/edit', [
+    Route::post('/video/edit', [
         'uses' => 'VideoController@editVideo',
         'as'   => 'video-edit'
     ]);

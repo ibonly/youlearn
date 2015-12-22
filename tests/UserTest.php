@@ -72,6 +72,11 @@ class UserTest extends TestCase
              ->seeInDatabase('users', ['email' => 'newemail@email.com']);
     }
 
+    /**
+     * Test view has user's video
+     *
+     * @return void
+     */
     public function testUserVideo()
     {
         $this->login();

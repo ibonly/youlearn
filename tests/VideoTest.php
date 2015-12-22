@@ -57,4 +57,49 @@ class VideoTest extends TestCase
              ->click('view')
              ->see('Created on');
     }
+
+    /**
+     *
+     */
+    public function testUserVideo()
+    {
+        $this->login();
+
+        $this->visit('/user/videos')
+             ->see('EDIT');
+
+        $this->assertViewHas('videos');
+    }
+
+    /**
+     * Test video edit
+     *
+     * @return void
+     */
+    public function testEditVideo()
+    {
+        $this->login();
+
+        $this->visit('/user/videos')
+             ->click('EDIT')
+             ->type('Latest Title', 'title')
+             ->press('Update')
+             ->seeInDatabase('videos', ['title' => 'Latest Title']);
+    }
+
+    /**
+     * Test play video
+     *
+     * @return void
+     */
+    public function testPlayVideo()
+    {
+        $this->login();
+
+        $this->visit('/')
+             ->click('view')
+             ->see('Uploaded by');
+
+        $this->assertViewHas('video');
+    }
 }
