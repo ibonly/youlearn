@@ -7,9 +7,8 @@
     @forelse($videos as $video)
 
         <div id="show-video">
-            @if($video->user_id == Auth::user()->id)
-                <a href="/video/{{ $video->slug }}/edit" id="edit-link"><i class="fa fa-pencil-square"></i></a>
-            @endif
+            <a href="/video/{{ $video->slug }}/edit" id="EDIT" id="edit-link"><i class="fa fa-pencil-square"></i></a>
+
             <img src="http://i1.ytimg.com/vi/{{ $video->url }}/hqdefault.jpg" width="100%" class="img-responsive" alt="">
             <div id="title" class="truncate">{{ $video->title }}</div>
             <a class="waves-effect waves-light btn" href="/play/{{ $video->slug }}"><i class="material-icons left">visibility</i>view</a><br />
