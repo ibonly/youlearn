@@ -87,10 +87,10 @@ class VideoController extends Controller
     public function getVideoId($url)
     {
         $videoId = "";
-        if ($this->youtubeExist($url)) {
+        if (!$this->youtubeExist($url)) {
             throw new InvlidYoutubeAddressException();
-
         }
+
         $getID = explode('=', $url);
 
         if (count($getID) > 1) {
@@ -110,6 +110,10 @@ class VideoController extends Controller
      */
     public function uploadVideo(Request $request)
     {
+        if (($request->title === null) || empty($request->title) || ($request->title == '')) {
+            throw new QueryException();
+        }
+
         try {
             Video::create([
                 'user_id'       => $request->user_id,
@@ -147,6 +151,10 @@ class VideoController extends Controller
      */
     public function editVideo(Request $request)
     {
+        if (($request->title === null) || empty($request->title) || ($request->title == '')) {
+            throw new QueryException();
+        }
+
         $update = Video::whereId($request->video_id)->update(['title' => $request->title, 'category_id' => $request->category_id, 'description' => $request->description, 'slug' => Str::slug($request->title)]);
 
         if ($update) {

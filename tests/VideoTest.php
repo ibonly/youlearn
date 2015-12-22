@@ -13,6 +13,12 @@ class VideoTest extends TestCase
 {
     use YouLearn\Test\CreateTrait;
 
+    protected $video;
+
+    public function __construct() {
+        $this->video = new VideoController();
+    }
+
     /**
      * Test video upload
      *
@@ -40,7 +46,7 @@ class VideoTest extends TestCase
         $video = new VideoController();
         $videoID = 'https://www.yahoo.com/watch?v=7TF00hJI78Y';
 
-        $this->assertTrue($video->youtubeExist($videoID));
+        $this->assertTrue($this->video->youtubeExist($videoID));
     }
 
     /**
@@ -48,10 +54,9 @@ class VideoTest extends TestCase
      */
     public function testVideoIsYoutube()
     {
-        $video = new VideoController();
         $videoID = 'https://www.youtube.com/watch?v=7TF00hJI78Y';
 
-        $this->assertTrue($video->youtubeExist($videoID));
+        $this->assertTrue($this->video->youtubeExist($videoID));
     }
 
     /**
@@ -140,5 +145,15 @@ class VideoTest extends TestCase
              ->click('deleteVideo');
 
         $this->assertResponseOk();
+    }
+
+    /**
+     * Test get video ID
+     */
+    public function testGetVideoId()
+    {
+        $videoID = 'https://www.youtube.com/watch?v=7TF00hJI78Y';
+
+        $this->assertInternalType('string', $this->video->getVideoId($videoID));
     }
 }
