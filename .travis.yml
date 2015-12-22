@@ -34,6 +34,7 @@ install: travis_retry composer install --no-interaction
 
 script:
   - mkdir -p build/logs
+  - php vendor/bin/phpunit -c phpunit.xml
   - phpunit --coverage-text --coverage-clover build/logs/clover.xml
   - vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover
 

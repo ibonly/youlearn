@@ -32,23 +32,6 @@ class VideoTest extends TestCase
     }
 
     /**
-     * Test video upload
-     *
-     * @return void
-     */
-    public function testVideoUploadError()
-    {
-        $this->login();
-
-        $this->visit('/video/upload')
-             ->see('Video Upload')
-             ->type('Test Title', 'title')
-             ->type('youtube_video', 'url')
-             ->press('Submit')
-             ->notSeeInDatabase('videos', ['title' => 'Test Title']);
-    }
-
-    /**
      * Test User cannot edit video
      *
      * @return void
