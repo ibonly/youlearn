@@ -99,11 +99,6 @@ class UserController extends Controller
                     "status_code" => 202,
                     "url"         => "/logout"
                 ];
-            } else {
-                $this->response = [
-                    "message"     => "Cannot update",
-                    "status_code" => 400
-                ];
             }
         } catch ( EmptyFieldException $e) {
             $this->response = [

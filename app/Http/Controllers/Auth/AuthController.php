@@ -10,6 +10,7 @@ use YouLearn\Category;
 use Illuminate\Http\Request;
 use Illuminate\Database\QueryException;
 use YouLearn\Http\Controllers\Controller;
+use YouLearn\Exceptions\EmptyFieldException;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 

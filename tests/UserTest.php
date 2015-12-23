@@ -85,7 +85,9 @@ class UserTest extends TestCase
     }
 
     /**
-     * @covers class::()
+     * Test Empty field supplied
+     *
+     * @return false
      */
     public function testEmptyInputUpdate()
     {
@@ -102,7 +104,7 @@ class UserTest extends TestCase
      *
      * @return void
      */
-    public function testUserVideo()
+    public function testUserVideoView()
     {
         $this->login();
 
@@ -110,5 +112,20 @@ class UserTest extends TestCase
              ->see('My Videos');
 
         $this->assertViewHas('videos');
+    }
+
+    /**
+     * Test edit view has users
+     *
+     * @return void
+     */
+    public function testEditView()
+    {
+        $this->login();
+
+        $this->visit('/user/details')
+             ->see('Update Information');
+
+        $this->assertViewHas('users');
     }
 }

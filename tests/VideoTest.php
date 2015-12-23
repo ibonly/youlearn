@@ -39,6 +39,43 @@ class VideoTest extends TestCase
     }
 
     /**
+     * Test cannot create video with empty field
+     *
+     * @return void
+     */
+    public function testEmptyFieldVideoUploadError()
+    {
+        $this->login();
+
+        $this->visit('/video/upload')
+             ->see('Video Upload')
+             ->type(1, 'user_id')
+             ->select('', 'category_id')
+             ->type('', 'title')
+             ->type('youtube_video', 'url')
+             ->press('Submit')
+             ->see('{"message":"Input field is empty","status_code":400}');
+    }
+
+    /**
+     * Test cannot create video
+     *
+     * @return void
+     */
+    public function testVideoUploadError()
+    {
+        $this->login();
+
+        $this->visit('/video/upload')
+             ->see('Video Upload')
+             ->type(1, 'user_id')
+             ->type('This is the new title', 'title')
+             ->type('youtube_video', 'url')
+             ->press('Submit')
+             ->see('{"message":"Error uploading video","status_code":400}');
+    }
+
+    /**
      * Test video is not youtube
      */
     public function testVideoIsNotYoutube()
@@ -115,6 +152,22 @@ class VideoTest extends TestCase
     }
 
     /**
+     * Test video edit
+     *
+     * @return void
+     */
+    public function testEditVideoError()
+    {
+        $this->login();
+
+        $this->visit('/user/videos')
+             ->click('EDIT')
+             ->type('', 'title')
+             ->press('Update')
+             ->see('{"message":"Input field is empty","status_code":400}');
+    }
+
+    /**
      * Test play video
      *
      * @return void
@@ -141,9 +194,8 @@ class VideoTest extends TestCase
 
         $this->visit('/user/videos')
              ->click('EDIT')
-             ->click('deleteVideo');
-
-        $this->assertResponseOk();
+             ->click('deleteVideo')
+             ->see('Video deleted successfully');
     }
 
     /**

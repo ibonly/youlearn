@@ -35,14 +35,4 @@ abstract class Controller extends BaseController
     {
         return Video::orderBy('created_at', 'desc')->limit(5)->get();
     }
-
-    public function cleanValue($value)
-    {
-            if (empty(trim($value)) || trim($value) == "") {
-                return true;
-            }
-
-            return $value;
-
-    }
 }
