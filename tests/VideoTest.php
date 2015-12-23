@@ -58,6 +58,25 @@ class VideoTest extends TestCase
     }
 
     /**
+     * Test cannot create video with empty field
+     *
+     * @return void
+     */
+    public function testInvalidYoutubeVideoUploadError()
+    {
+        $this->login();
+
+        $this->visit('/video/upload')
+             ->see('Video Upload')
+             ->type(1, 'user_id')
+             ->select('1', 'category_id')
+             ->type('New Title', 'title')
+             ->type('htt://pyahoo.com', 'url')
+             ->press('Submit')
+             ->see('{"message":"Invalid Youtube URL","status_code":400}');
+    }
+
+    /**
      * Test cannot create video
      *
      * @return void
@@ -69,10 +88,11 @@ class VideoTest extends TestCase
         $this->visit('/video/upload')
              ->see('Video Upload')
              ->type(1, 'user_id')
-             ->type('This is the new title', 'title')
-             ->type('youtube_video', 'url')
+             ->type('', 'category_id')
+             ->type('', 'title')
+             ->type('https://www.youtube.com/watch?v=7TF00hJI78Y', 'url')
              ->press('Submit')
-             ->see('{"message":"Error uploading video","status_code":400}');
+             ->see('{"message":"Input field is empty","status_code":400}');
     }
 
     /**
@@ -82,7 +102,7 @@ class VideoTest extends TestCase
     {
         $videoID = 'https://www.yahoo.com/watch?v=7TF00hJI78Y';
 
-        $this->assertTrue($this->video->youtubeExist($videoID));
+        $this->assertFalse($this->video->youtubeExist($videoID));
     }
 
     /**

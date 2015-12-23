@@ -71,11 +71,9 @@ class VideoController extends Controller
      *
      * @return bool
      */
-    public function youtubeExist($videoID)
+    public function youtubeExist($url)
     {
-        $headers = strpos('youtube', $videoID);
-
-        return ($headers === false) ? true : false;
+        return (strpos($url, "youtube") !== false) ? true : false;
     }
 
     /**
@@ -133,12 +131,12 @@ class VideoController extends Controller
                 "message"     => "Error uploading video",
                 "status_code" => 400
             ];
-        } catch (InvlidYoutubeAddressException $e) {
+        } catch (EmptyFieldException $e) {
             $this->response = [
                 "message"     => $e->errorMessage(),
                 "status_code" => 400
             ];
-        } catch (EmptyFieldException $e) {
+        }catch (InvlidYoutubeAddressException $e) {
             $this->response = [
                 "message"     => $e->errorMessage(),
                 "status_code" => 400

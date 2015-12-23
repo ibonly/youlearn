@@ -81,7 +81,10 @@ class UserTest extends TestCase
              ->type('newemail@email.com', 'email')
              ->type('newpassword', 'password')
              ->press('Update')
-             ->seeInDatabase('users', ['email' => 'newemail@email.com']);
+             ->seeInDatabase('users', ['email' => 'newemail@email.com'])
+             ->see('Update successful, you will be logged out')
+             ->see(202)
+             ->see('/logout');
     }
 
     /**
