@@ -48,7 +48,8 @@ trait CreateTrait
     public function createCategory()
     {
         return Category::create([
-            'name' => 'Test Category'
+            'id'   => 1,
+            'name' => 'Test-Category'
         ]);
     }
 
@@ -62,7 +63,7 @@ trait CreateTrait
         return Video::create([
             'id'          => 1,
             'user_id'     => 1,
-            'category_id' => 1,
+            'category_id' => 9,
             'title'       => 'Test Title',
             'url'         => 'https://www.youtube.com/watch?v=7TF00hJI78Y',
             'description' => 'Sample video description',
