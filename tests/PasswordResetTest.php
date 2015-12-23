@@ -27,7 +27,9 @@ class PasswordResetTest extends TestCase
     }
 
     /**
-     * @covers class::()
+     * Test Password reset form
+     *
+     * @return void
      */
     public function testPasswordResetFOrm()
     {
