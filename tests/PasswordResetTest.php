@@ -26,6 +26,23 @@ class PasswordResetTest extends TestCase
              ->seePageIs('/passwordreset');
     }
 
+    /**
+     * @covers class::()
+     */
+    public function testPasswordResetFOrm()
+    {
+        $this->createUser();
+
+        $this->visit('/')
+             ->click('Login')
+             ->seePageIs('/login')
+             ->click('Forgot Your Password')
+             ->seePageIs('/passwordreset')
+             ->type('ib1@gmail.com', 'email')
+             ->press('submit_reset')
+             ->see('{"message":"Invalid","status_code":400}');
+    }
+
     public function testGetResetPageError()
     {
         $password = new PasswordController();
