@@ -7,6 +7,7 @@ use YouLearn\Category;
 use YouLearn\Http\Requests;
 use Illuminate\Http\Request;
 use YouLearn\Http\Controllers\Controller;
+use YouLearn\Exceptions\EmptyFieldException;
 
 class SearchController extends Controller
 {
@@ -18,11 +19,18 @@ class SearchController extends Controller
      */
     public function show(Request $request)
     {
-        $recent = $this->recentVideos();
-        $categories = Category::orderBy('name', 'asc')->get();
-        $videos = Video::where('title', 'ILIKE', '%'. $request->search .'%')->paginate(9);
+        $search = $request->search;
+        try{
+            if (empty(trim($search)) ) {
+                throw new EmptyFieldException();
+            }
+            $recent = $this->recentVideos();
+            $categories = Category::orderBy('name', 'asc')->get();
+            $videos = Video::where('title', 'ILIKE', '%'. $search .'%')->paginate(9);
 
-        return view('pages.search', compact('videos', 'categories', 'recent'));
+            return view('pages.search', compact('videos', 'categories', 'recent'));
+        } catch (EmptyFieldException $e) {
+            return view('errors.404');
+        }
     }
-
 }
