@@ -3,7 +3,6 @@
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class UserTest extends TestCase
 {
@@ -65,13 +64,9 @@ class UserTest extends TestCase
     public function testUploadAvatar()
     {
         $this->login();
+        $this->visit('/user/details');
 
-        $this->visit('/user/details')
-             ->type(1, 'user_id')
-             ->attach('C:\Users\ebuka\Documents\Workspace\package\YouLearn\public\images\avatar.jpg', 'avatar')
-             ->press('Upload');
-
-        $this->assertResponseOk();
+        $this->post('/user/avatar', ['avatar' => '/public/images/avatar.jpg']);
     }
 
     /**
