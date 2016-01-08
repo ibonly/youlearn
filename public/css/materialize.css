@@ -5563,7 +5563,6 @@ small {
 .card {
   position: relative;
   overflow: hidden;
-  margin: 0.5rem 0 1rem 0;
   background-color: #fff;
   transition: box-shadow .25s;
   border-radius: 2px; }
@@ -5619,7 +5618,7 @@ small {
       left: 0;
       padding: 20px; }
   .card .card-content {
-    padding: 20px;
+    padding: 5px;
     border-radius: 0 0 2px 2px; }
     .card .card-content p {
       margin: 0;
