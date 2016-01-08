@@ -23,3 +23,7 @@
     </form>
 
 </div>
+
+<div class="row">
+    <a href="/register">Sign Up</a> | <a href="/login">Sign In</a>
+</div>

@@ -15,27 +15,32 @@
         <br />
         <input type="hidden" name="avatar" id="avatar" value="{!! asset('/images/default.png') !!}" />
 
-        <button class="btn btn-lg btn-primary btn-block" name="submit" type="submit">Sign Up</button>
+        <div class="row">
+            <button class="btn btn-lg btn-primary btn-block" name="submit" type="submit">Sign Up</button>
 
-        <div class="facebook">
-            <a href="{{ URL::to('login/facebook') }}">
-                <div class="col s3"><i class="fa fa-facebook fa-2x"></i></div>
-                Facebook
-            </a>
-        </div>
+            <div class="social_login">
+                    <a href="{{ URL::to('login/facebook') }}">
+                    <div class="facebook tooltipped" data-position="top" data-delay="50" data-tooltip="Login with facebook">
+                        <div class="col s3"><i class="fa fa-facebook fa-2x"></i></div>
+                    </div>
+                </a>
+            </div>
 
-        <div class="twitter">
-            <a href="{{ URL::to('login/twitter') }}">
-                <div class="col s3"><i class="fa fa-twitter fa-2x"></i></div>
-                Twitter
-            </a>
-        </div>
+            <div class="social_login tooltipped" data-position="top" data-delay="50" data-tooltip="Login with Twitter">
+                <a href="{{ URL::to('login/twitter') }}">
+                    <div class="twitter">
+                        <div class="col s3"><i class="fa fa-twitter fa-2x"></i></div>
+                    </div>
+                </a>
+            </div>
 
-        <div class="github">
-            <a href="{{ URL::to('login/github') }}">
-                <div class="col s3"><i class="fa fa-github fa-2x"></i></div>
-                Github
-            </a>
+            <div class="social_login tooltipped" data-position="top" data-delay="50" data-tooltip="Login with Github">
+                    <a href="{{ URL::to('login/github') }}">
+                    <div class="github">
+                        <div class="col s3"><i class="fa fa-github fa-2x"></i></div>
+                    </div>
+                </a>
+            </div>
         </div>
 
     </form>
