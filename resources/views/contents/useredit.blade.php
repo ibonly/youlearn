@@ -31,7 +31,7 @@
         <input type="hidden" name="user_id" id="user_id" value="{{ $users->id }}">
 
         <div class="row">
-            <input type="file" name="avatar" id="avatar" accept="image/*" placeholder="Upload Your Avatar" required />
+            <input type="file" name="avatar" id="favatar" accept="image/*" placeholder="Upload Your Avatar" required />
         </div>
 
         <div class="row">

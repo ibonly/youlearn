@@ -199,6 +199,11 @@ h6
     width: 15%;
 }
 
+#video-profile img
+{
+    padding: 5px;
+}
+
 #video
 {
     width: 85%;
