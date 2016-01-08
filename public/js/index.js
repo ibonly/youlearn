@@ -172,7 +172,7 @@ $(document).ready(function(){
         var video_id    = $("#video_id").val();
         var user_id     = $("#user_id").val();
         var category_id = $("#category_id").val();
-        var title       = $("#title").val();
+        var title       = $("#video_title").val();
         var videoURL         = $("#url").val();
         var description = $("#description").val();
         var data        =
@@ -203,7 +203,7 @@ $(document).ready(function(){
         var video_id    = $("#video_id").val();
         var user_id     = $("#user_id").val();
         var category_id = $("#category_id").val();
-        var title       = $("#title").val();
+        var title       = $("#video_title").val();
         var videoURL         = $("#url").val();
         var description = $("#description").val();
         var data        =

@@ -1,6 +1,8 @@
 <div id="play-video">
 
-    <iframe id="video-frame" width="760" height="515" src="https://www.youtube.com/embed/{{ $video->url }}" frameborder="0" allowfullscreen></iframe>
+    <div class="video-container">
+        <iframe id="video-frame" width="760" height="515" src="https://www.youtube.com/embed/{{ $video->url }}" frameborder="0" allowfullscreen></iframe>
+    </div>
 
 </div>
 

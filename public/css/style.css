@@ -84,12 +84,40 @@ body
 .social_login
 {
     overflow: hidden;
-    padding: 5px;
-    width: 179px;
-    text-align: right;
+    width: 70px;
+    text-align: center;
     margin: 10px;
     margin-right: 2px;
     float: right;
+    border-radius: 10px;
+    box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18);
+}
+
+
+.facebook {
+    width:100%;
+    background-color: #3B5999;
+    height:50px;
+    margin: 1%;
+    padding: 10px;
+    color: #ffffff;
+}
+
+.twitter {
+    background-color: #55ACEF;
+    height:50px;
+    margin: 1%;
+    padding: 10px;
+    color: #ffffff;
+}
+
+.github {
+    width:100%;
+    background-color: #949DA5;
+    height:50px;
+    margin: 1%;
+    padding: 10px;
+    color: #ffffff;
 }
 
 .form-update

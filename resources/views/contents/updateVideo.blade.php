@@ -18,7 +18,7 @@
             <label>Select Title</label>
         </div>
         <label for="title" class="sr-only">Video Title</label>
-        <input type="text" name="title" id="title" value="{{ $video->title }}" class="form-control" required autofocus><br />
+        <input type="text" name="title" id="video_title" value="{{ $video->title }}" class="form-control" required autofocus><br />
 
         <label for="url" class="sr-only">Youtube Video URL</label>
         <input type="text" name="url" id="url" value="https://www.youtube.com/watch?v={{ $video->url }}" readonly class="form-control" required autofocus><br />

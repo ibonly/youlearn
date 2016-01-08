@@ -27,12 +27,17 @@ class CategoryTest extends TestCase
         $this->assertTrue(true);
     }
 
+    /**
+     * test Video Category
+     *
+     * @return void
+     */
     public function testVideoCategory()
     {
         $this->createCategory();
         $this->createVideo();
 
-        $this->visit('/category/Test-Category')
+        $this->visit('/category/Test')
              ->see('View');
     }
 }

@@ -15,7 +15,7 @@
             <label>Select Title</label>
         </div>
         <label for="title" class="sr-only">Video Title</label>
-        <input type="text" name="title" id="title" class="form-control" required autofocus><br />
+        <input type="text" name="title" id="video_title" class="form-control" required autofocus><br />
 
         <label for="url" class="sr-only">Youtube Video URL</label>
         <input type="text" name="url" id="url" class="form-control" required autofocus><br />
