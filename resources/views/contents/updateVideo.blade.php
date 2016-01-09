@@ -26,7 +26,7 @@
         <label for="description" class="sr-only">Video Description</label>
         <input type="text" name="description" id="description" value="{{ $video->description }}" class="form-control" required autofocus><br />
 
-        <button class="btn btn-lg btn-primary btn-block left" name="submit" type="submit">Update</button>
+        <button class="btn btn-lg btn-primary btn-block left" name="update" id="update" type="submit">Update</button>
 
         <a href="/video/{{ $video->id }}/delete " data-id="{{ $video->id }}" data-token="{{ csrf_token() }}" data-title="{{ $video->title }}" id="deleteVideo" class="tooltipped delet right" data-position="top" data-delay="50" data-tooltip="DELETE VIDEO"><i class="fa fa-trash fa-2x"></i></a>
 

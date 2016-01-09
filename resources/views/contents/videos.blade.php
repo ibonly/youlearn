@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col m12">
         <span id="edit-title">My Videos</span>
-        <a href="/video/upload" class="waves-effect waves-light btn btn-small right tooltipped" data-position="top" data-delay="50" data-tooltip="ADD VIDEO"><i class="material-icons">add</i></a>
+        <a href="/video/upload" id="EDIT" class="waves-effect waves-light btn btn-small right tooltipped" data-position="top" data-delay="50" data-tooltip="ADD VIDEO"><i class="material-icons">add</i></a>
     </div>
 
     @forelse($videos as $video)
@@ -18,7 +18,7 @@
                 <span class="card-title grey-text text-darken-4">Video Title<i class="material-icons right">close</i></span>
                 <p>{{ $video->title }}.</p>
                 <a class="waves-effect waves-light btn left" href="/play/{{ $video->slug }}" id="view"><i class="material-icons left">visibility</i></a>
-                <a class="waves-effect waves-light btn right" href="/video/{{ $video->slug }}/edit"><i class="fa fa-pencil-square"></i></a>
+                <a class="waves-effect waves-light btn right" id="edit" href="/video/{{ $video->slug }}/edit"><i class="fa fa-pencil-square"></i></a>
             </div>
         </div>
     </div>

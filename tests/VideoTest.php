@@ -165,7 +165,8 @@ class VideoTest extends TestCase
         $this->login();
 
         $this->visit('/user/videos')
-             ->click('EDIT')
+             ->see('Video Title')
+             ->click('edit')
              ->type('Latest Title', 'title')
              ->press('Update')
              ->seeInDatabase('videos', ['title' => 'Latest Title']);
@@ -181,7 +182,7 @@ class VideoTest extends TestCase
         $this->login();
 
         $this->visit('/user/videos')
-             ->click('EDIT')
+             ->click('edit')
              ->type('', 'title')
              ->press('Update')
              ->see('{"message":"Input field is empty","status_code":400}');
@@ -213,7 +214,7 @@ class VideoTest extends TestCase
         $this->login();
 
         $this->visit('/user/videos')
-             ->click('EDIT')
+             ->click('edit')
              ->click('deleteVideo')
              ->see('Video deleted successfully');
     }
