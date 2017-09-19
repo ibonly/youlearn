@@ -4,6 +4,7 @@ namespace YouLearn\Http\Controllers;
 
 use YouLearn\Video;
 use YouLearn\Category;
+use YouLearn\Exceptions\EmptyFieldException;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;

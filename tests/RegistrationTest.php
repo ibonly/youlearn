@@ -6,6 +6,8 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class RegistrationTest extends TestCase
 {
+    use YouLearn\Test\CreateTrait;
+
     /**
      * Test Registration Page LoadsCorrectly
      *
@@ -33,4 +35,5 @@ class RegistrationTest extends TestCase
              ->press('Sign Up')
              ->seeInDatabase('users',['username' =>'testuser']);
     }
+
 }

@@ -54,4 +54,30 @@ class LoginTest extends TestCase
              ->press('Sign In')
              ->see('{"message":"login failed","status_code":400}');
     }
+
+    /**
+     * Test see Password reset link
+     */
+    public function testSeePasswordResetLink()
+    {
+        $this->visit('/')
+            ->see('Login')
+            ->click('Login')
+            ->see('Please sign in')
+            ->click('Forgot Your Password')
+            ->see('Reset your password');
+    }
+
+    /**
+     * Test see Password reset link
+     */
+    public function testSeeRegistrationLink()
+    {
+        $this->visit('/')
+            ->see('Login')
+            ->click('Login')
+            ->see('Please sign in')
+            ->click('Sign Up')
+            ->see('Registration Form');
+    }
 }

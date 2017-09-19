@@ -4,7 +4,7 @@ namespace YouLearn;
 
 use Illuminate\Database\Eloquent\Model;
 
-class PasswordReset extends Model
+class Password_Reset extends Model
 {
     //
 }

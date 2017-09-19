@@ -1,7 +1,7 @@
 <nav class="white" role="navigation">
 
     <div class="nav-wrapper container">
-        <a id="logo-container" href="/" class="brand-logo"><img src="{!! load_asset('images/nlogo.png') !!}" width="40%" /></a>
+        <a id="logo-container" href="/" class="brand-logo"><img src="{!! load_asset('images/nnlogo.png') !!}" width="40%" /></a>
 
         <ul class="right hide-on-med-and-down">
             <li>

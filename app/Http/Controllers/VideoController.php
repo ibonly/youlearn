@@ -10,6 +10,8 @@ use YouLearn\Http\Requests;
 use Illuminate\Http\Request;
 use Illuminate\Database\QueryException;
 use YouLearn\Http\Controllers\Controller;
+use YouLearn\Exceptions\EmptyFieldException;
+use YouLearn\Exceptions\InvlidYoutubeAddressException;
 
 class VideoController extends Controller
 {
@@ -63,6 +65,18 @@ class VideoController extends Controller
     }
 
     /**
+     * Validate the existence of a resource video.
+     *
+     * @param $videoID Youtube ID supplied by those posting
+     *
+     * @return bool
+     */
+    public function youtubeExist($url)
+    {
+        return (strpos($url, "youtube") !== false) ? true : false;
+    }
+
+    /**
      * Get video ID from the URL
      *
      * @param  $url
@@ -71,6 +85,10 @@ class VideoController extends Controller
     public function getVideoId($url)
     {
         $videoId = "";
+        if (!$this->youtubeExist($url)) {
+            throw new InvlidYoutubeAddressException();
+        }
+
         $getID = explode('=', $url);
 
         if (count($getID) > 1) {
@@ -91,6 +109,10 @@ class VideoController extends Controller
     public function uploadVideo(Request $request)
     {
         try {
+            if ((trim($request->title) === null) || empty(trim($request->title)) || (trim($request->title) == '')) {
+                throw new EmptyFieldException();
+            }
+
             Video::create([
                 'user_id'       => $request->user_id,
                 'category_id'   => $request->category_id,
@@ -109,6 +131,16 @@ class VideoController extends Controller
                 "message"     => "Error uploading video",
                 "status_code" => 400
             ];
+        } catch (EmptyFieldException $e) {
+            $this->response = [
+                "message"     => $e->errorMessage(),
+                "status_code" => 400
+            ];
+        }catch (InvlidYoutubeAddressException $e) {
+            $this->response = [
+                "message"     => $e->errorMessage(),
+                "status_code" => 400
+            ];
         }
 
         return $this->response;
@@ -122,17 +154,23 @@ class VideoController extends Controller
      */
     public function editVideo(Request $request)
     {
-        $update = Video::whereId($request->video_id)->update(['title' => $request->title, 'category_id' => $request->category_id, 'description' => $request->description, 'slug' => Str::slug($request->title)]);
+        try {
+            if (($request->title === null) || empty(trim($request->title)) || (trim($request->title) == '')) {
+                throw new EmptyFieldException();
+            }
 
-        if ($update) {
+            $update = Video::whereId($request->video_id)->update(['title' => $request->title, 'category_id' => $request->category_id, 'description' => $request->description, 'slug' => Str::slug($request->title)]);
+
+            if ($update) {
+                $this->response = [
+                    "message"     => "Video updated successfully",
+                    "status_code" => 202,
+                    "url"         => "/user/videos"
+                ];
+            }
+        } catch (EmptyFieldException $e) {
             $this->response = [
-                "message"     => "Video updated successfully",
-                "status_code" => 202,
-                "url"         => "/user/videos"
-            ];
-        } else {
-            $this->response = [
-                "message"     => "Error Updating video",
+                "message"     => $e->errorMessage(),
                 "status_code" => 400
             ];
         }

@@ -1,6 +1,6 @@
 <div class="col s7 m7 offset-s6 hide-on-small-only left">
 
-    <form class="user-update" id="registration_form" action="{{ url('/users/update') }}" method="post">
+    <form class="user-update" id="registration_form" action="{{ url('/user/update') }}" method="post">
 
         <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
         <h2 class="form-signin-heading" align="center">Update Information</h2>
@@ -31,7 +31,7 @@
         <input type="hidden" name="user_id" id="user_id" value="{{ $users->id }}">
 
         <div class="row">
-            <input type="file" name="avatar" accept="image/*" placeholder="Upload Your Avatar" required />
+            <input type="file" name="avatar" id="favatar" accept="image/*" placeholder="Upload Your Avatar" required />
         </div>
 
         <div class="row">

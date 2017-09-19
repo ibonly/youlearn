@@ -18,7 +18,13 @@ Recently Added
                 <img src="http://i1.ytimg.com/vi/{{ $recent->url }}/hqdefault.jpg" alt="">
                 <div id="side_title">
                     <span style="font-weight: bold;">{{ $recent->title }}</span><br />
-                    <small>By {{ $recent->user->username }}</small>
+
+                    @if( Auth::check() )
+                        <small>By {{ uploaded_by( Auth::user()->username, $recent->user->username) }}</small>
+                    @else
+                        <small>By {{ $recent->user->username }}</small>
+                    @endif
+
                 </div>
             </a>
         </li>

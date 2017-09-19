@@ -4,13 +4,14 @@ namespace YouLearn\Http\Controllers\Auth;
 
 use YouLearn\User;
 use YouLearn\Category;
-use YouLearn\PasswordReset;
 use Illuminate\Mail\Message;
 use Illuminate\Http\Request;
+use YouLearn\Password_Reset;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Password;
 use YouLearn\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class PasswordController extends Controller
 {
@@ -38,19 +39,6 @@ class PasswordController extends Controller
     }
 
     /**
-     * Load the password reset page
-     *
-     * @param none
-     * @return \Illuminate\Http\Response
-     */
-    public function getEmailPage()
-    {
-        $categories = Category::orderBy('name', 'asc')->get();
-
-        return view('pages.passwordreset', compact('categories'));
-    }
-
-    /**
      * Load a password reset page.
      *
      * @param none
@@ -58,9 +46,10 @@ class PasswordController extends Controller
      */
     public function passwordPage()
     {
-        $categories = Category::orderBy('name', 'asc')->get();
+        $recent = $this->recentVideos();
+        $categories = $this->getCategory();
 
-        return view('pages.passwordreset', compact('categories'));
+        return view('pages.passwordreset', compact('categories', 'recent'));
     }
 
     /**
@@ -109,10 +98,11 @@ class PasswordController extends Controller
             throw new NotFoundHttpException;
         }
 
-        $data = PasswordReset::whereToken($token)->first();
-        $categories = Category::orderBy('name', 'asc')->get();
+        $recent = $this->recentVideos();
+        $categories = $this->getCategory();
+        $data = Password_Reset::whereToken($token)->first();
 
-        return view('pages.newpassword', compact('categories'))->with(['token' => $token, 'email' => $data->email]);
+        return view('pages.newpassword', compact('categories', 'recent'))->with(['token' => $token, 'email' => $data->email]);
     }
 
     /**
@@ -123,7 +113,7 @@ class PasswordController extends Controller
      */
     public function postResetCheckEmail(Request $request)
     {
-        $status = PasswordReset::whereEmail($request->only('email'))->first();
+        $status = Password_Reset::whereEmail($request->only('email'))->first();
         $response = [];
 
         if ($status === null) {

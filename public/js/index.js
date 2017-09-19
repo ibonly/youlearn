@@ -59,7 +59,7 @@ function confirmDelete (url, parameter, title)
     function ( isConfirm )
     {
         if( isConfirm ) {
-            processAjax("DELETE", url, parameter);
+            processAjax("GET", url, parameter);
         } else {
             cancelDeleteMessage( title );
         }
@@ -172,7 +172,7 @@ $(document).ready(function(){
         var video_id    = $("#video_id").val();
         var user_id     = $("#user_id").val();
         var category_id = $("#category_id").val();
-        var title       = $("#title").val();
+        var title       = $("#video_title").val();
         var videoURL         = $("#url").val();
         var description = $("#description").val();
         var data        =
@@ -203,7 +203,7 @@ $(document).ready(function(){
         var video_id    = $("#video_id").val();
         var user_id     = $("#user_id").val();
         var category_id = $("#category_id").val();
-        var title       = $("#title").val();
+        var title       = $("#video_title").val();
         var videoURL         = $("#url").val();
         var description = $("#description").val();
         var data        =
@@ -220,7 +220,7 @@ $(document).ready(function(){
                     description : description
                 }
             }
-        processAjax("PUT", data.url, data.parameter);
+        processAjax("POST", data.url, data.parameter);
 
         return false;
     });
@@ -246,7 +246,7 @@ $(document).ready(function(){
                     password   : password
                 }
             }
-        processAjax("PUT", data.url, data.parameter);
+        processAjax("POST", data.url, data.parameter);
 
         return false;
     });
@@ -265,6 +265,25 @@ $(document).ready(function(){
                 }
             }
         confirmDelete(data.url, data.parameter, title );
+
+        return false;
+    });
+
+    $("#password_reset_form").submit( function () {
+        var url   = '/password/email';
+        var email = $('#email').val();
+        var token = $('#token').val();
+
+        var data =
+        {
+            url        : url,
+            parameter  :
+            {
+                _token : token,
+                email  : email
+            }
+        }
+        processAjax("POST", data.url, data.parameter);
 
         return false;
     });

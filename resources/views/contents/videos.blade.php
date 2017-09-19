@@ -1,19 +1,27 @@
 <div class="row">
-
     <div class="col m12">
-        <a href="/video/upload" class="waves-effect waves-light btn btn-small right tooltipped" data-position="top" data-delay="50" data-tooltip="ADD VIDEO"><i class="material-icons">add</i></a>
+        <span id="edit-title">My Videos</span>
+        <a href="/video/upload" id="EDIT" class="waves-effect waves-light btn btn-small right tooltipped" data-position="top" data-delay="50" data-tooltip="ADD VIDEO"><i class="material-icons">add</i></a>
     </div>
 
     @forelse($videos as $video)
 
-        <div id="show-video">
-            <img src="http://i1.ytimg.com/vi/{{ $video->url }}/hqdefault.jpg" width="100%" class="img-responsive" alt="">
-            <div id="title" class="truncate">{{ $video->title }}</div>
-            <a class="waves-effect waves-light btn" href="/play/{{ $video->slug }}"><i class="material-icons left">visibility</i>view</a><br />
-            @can( 'see-edit', $video )
-                <a href="/video/{{ $video->slug }}/edit"> EDIT</a>
-            @endcan<br />
+    <div id="show-video" class="s12">
+        <div class="card">
+            <div class="card-image waves-effect waves-block waves-light">
+                <img src="http://i1.ytimg.com/vi/{{ $video->url }}/hqdefault.jpg" width="100%" class="img-responsive" alt="">
+            </div>
+            <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4 truncate" id="title">{{ $video->title }}</span>
+            </div>
+            <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4">Video Title<i class="material-icons right">close</i></span>
+                <p>{{ $video->title }}.</p>
+                <a class="waves-effect waves-light btn left" href="/play/{{ $video->slug }}" id="view"><i class="material-icons left">visibility</i></a>
+                <a class="waves-effect waves-light btn right" id="edit" href="/video/{{ $video->slug }}/edit"><i class="fa fa-pencil-square"></i></a>
+            </div>
         </div>
+    </div>
 
     @empty
 

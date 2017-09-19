@@ -10,6 +10,7 @@ use YouLearn\Category;
 use Illuminate\Http\Request;
 use Illuminate\Database\QueryException;
 use YouLearn\Http\Controllers\Controller;
+use YouLearn\Exceptions\EmptyFieldException;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
@@ -81,21 +82,6 @@ class AuthController extends Controller
         Auth::logout();
 
         return redirect('/');
-    }
-
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|confirmed|min:6',
-        ]);
     }
 
     /**

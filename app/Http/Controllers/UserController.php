@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
 use Illuminate\Database\QueryException;
 use YouLearn\Http\Controllers\Controller;
+use YouLearn\Exceptions\EmptyFieldException;
 
 class UserController extends Controller
 {
@@ -84,17 +85,24 @@ class UserController extends Controller
      */
     public function userUpdate(Request $request)
     {
-        $update = User::where('username', $request->user()->username)->update(['email' => $request->email,'password' => bcrypt($request->password)]);
 
-        if ($update) {
+        try {
+            if (empty(trim($request->email)) || trim($request->email) == ""  || empty(trim($request->password)) || trim($request->password) === null) {
+                throw new EmptyFieldException();
+            }
+
+            $update = User::where('username', $request->user()->username)->update(['email' => $request->email,'password' => bcrypt($request->password)]);
+
+            if ($update) {
+                $this->response = [
+                    "message"     => "Update successful, you will be logged out",
+                    "status_code" => 202,
+                    "url"         => "/logout"
+                ];
+            }
+        } catch ( EmptyFieldException $e) {
             $this->response = [
-                "message"     => "Update successful, you will be logged out",
-                "status_code" => 202,
-                "url"         => "/logout"
-            ];
-        } else {
-            $this->response = [
-                "message"     => "Cannot update",
+                "message"     => $e->errorMessage(),
                 "status_code" => 400
             ];
         }

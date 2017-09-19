@@ -10,6 +10,7 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+// Route::pattern('name', '(?i)name(?-i)');
 Route::group(['middleware' => 'guest'], function () {
     Route::get('/', [
         'uses' => 'IndexController@homePage',
@@ -47,15 +48,9 @@ Route::group(['middleware' => 'guest'], function () {
     /-------------------------------------------------------------------------------
     */
 
-    Route::get('passwordreset', [
+    Route::get('/passwordreset', [
         'uses' => 'Auth\PasswordController@passwordPage',
-        'as'   => 'passwordreset',
-        'middleware'   => ['guest']
-    ]);
-
-    Route::get('password/email', [
-        'uses' =>'Auth\PasswordController@getEmailPage',
-        'as'   => "passwordreset"
+        'as'   => 'passwordreset'
     ]);
 
     Route::post('password/email', [
@@ -103,7 +98,7 @@ Route::group(['middleware' => 'auth'], function () {
         'as'   => 'edit'
     ]);
 
-    Route::put('/user/update', [
+    Route::post('/user/update', [
         'uses' => 'UserController@userUpdate'
     ]);
 
@@ -118,8 +113,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/user/videos', [
         'uses' => 'UserController@myVideos',
-        'as'   => 'myVideos',
-        'middleware'   => ['auth']
+        'as'   => 'myVideos'
     ]);
 
     Route::get('/video/upload', [
@@ -133,15 +127,15 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/video/{title}/edit', [
         'uses' => 'VideoController@updatePage',
-            'as'   => 'video-edit'
+        'as'   => 'video-edit'
     ]);
 
-    Route::put('/video/edit', [
+    Route::post('/video/edit', [
         'uses' => 'VideoController@editVideo',
         'as'   => 'video-edit'
     ]);
 
-    Route::delete('/video/{id}/delete', [
+    Route::get('/video/{id}/delete', [
         'uses' => 'VideoController@deleteVideo'
     ]);
 });

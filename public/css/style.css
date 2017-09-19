@@ -19,11 +19,14 @@ body
     overflow: hidden;
     background: #ffffff;
     width: 100%;
+    box-shadow: 0 1px 1px rgba(0,0,0,.25);
 }
 .recent-list li
 {
+    padding: 5px;
     overflow: hidden;
     color: #333;
+    border-bottom: 1px solid #E8E8E8;
 }
 .recent-list a
 {
@@ -37,7 +40,7 @@ body
 .recent-list #side_title
 {
     font-size: 12px;
-    width: 80%;
+    width: 77%;
     float: right;
 }
 .recent-list small
@@ -53,61 +56,68 @@ body
     border-radius: 500px;
 }
 
-.twitter
+#show-video .btn
 {
-    background: #63D8EC;
-    overflow: hidden;
-    padding: 5px;
-    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+#edit-link
+{
+    position: absolute;
+    z-index: 9999999999;
+    color: #7FB06F;
+    padding-left: 6px;
+    font-size: 20px;
+}
+
+.delete
+{
+    color: blue;
+}
+
+#edit-title
+{
+    font-size: 20px;
     font-weight: bold;
-    width: 15%;
-    text-align: right;
-    border-radius: 10px;
-    padding-right: 15px;
-    margin: 10px;
-    float: right;
 }
 
-.github
+.social_login
 {
-    background: #C5C5C5;
     overflow: hidden;
-    padding: 5px;
-    color: #ffffff;
-    font-weight: bold;
-    width: 15%;
-    text-align: right;
-    border-radius: 10px;
-    padding-right: 15px;
+    width: 70px;
+    text-align: center;
     margin: 10px;
+    margin-right: 2px;
     float: right;
-}
-
-.facebook
-{
-    background: #528EDA;
-    overflow: hidden;
-    padding: 5px;
-    color: #ffffff;
-    font-weight: bold;
-    width: 15%;
-    text-align: right;
     border-radius: 10px;
-    padding-right: 15px;
-    margin: 10px;
-    float: right;
+    box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18);
 }
 
-.github a
-{
+
+.facebook {
+    width:100%;
+    background-color: #3B5999;
+    height:50px;
+    margin: 1%;
+    padding: 10px;
     color: #ffffff;
-    margin-top: 20px;
 }
 
-.facebook a, .twitter a
-{
+.twitter {
+    background-color: #55ACEF;
+    height:50px;
+    margin: 1%;
+    padding: 10px;
     color: #ffffff;
-    padding-left: 10px;
+}
+
+.github {
+    width:100%;
+    background-color: #949DA5;
+    height:50px;
+    margin: 1%;
+    padding: 10px;
+    color: #ffffff;
 }
 
 .form-update
@@ -172,10 +182,10 @@ h6
 #title
 {
     width: 100%;
-    border-bottom: 1px solid #eee;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: bold;
     text-transform: capitalize;
+    padding: 5px;
 }
 .play-details
 {
@@ -186,6 +196,11 @@ h6
 {
     float: left;
     width: 15%;
+}
+
+#video-profile img
+{
+    padding: 5px;
 }
 
 #video

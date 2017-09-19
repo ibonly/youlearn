@@ -18,7 +18,7 @@
             <label>Select Title</label>
         </div>
         <label for="title" class="sr-only">Video Title</label>
-        <input type="text" name="title" id="title" value="{{ $video->title }}" class="form-control" required autofocus><br />
+        <input type="text" name="title" id="video_title" value="{{ $video->title }}" class="form-control" required autofocus><br />
 
         <label for="url" class="sr-only">Youtube Video URL</label>
         <input type="text" name="url" id="url" value="https://www.youtube.com/watch?v={{ $video->url }}" readonly class="form-control" required autofocus><br />
@@ -26,9 +26,9 @@
         <label for="description" class="sr-only">Video Description</label>
         <input type="text" name="description" id="description" value="{{ $video->description }}" class="form-control" required autofocus><br />
 
-        <button class="btn btn-lg btn-primary btn-block left" name="submit" type="submit">Update</button>
+        <button class="btn btn-lg btn-primary btn-block left" name="update" id="update" type="submit">Update</button>
 
-        <a href="/users/{{ $video->id }}/videos " data-id="{{ $video->id }}" data-token="{{ csrf_token() }}" data-title="{{ $video->title }}" id="deleteVideo">DELETE</a>
+        <a href="/video/{{ $video->id }}/delete " data-id="{{ $video->id }}" data-token="{{ csrf_token() }}" data-title="{{ $video->title }}" id="deleteVideo" class="tooltipped delet right" data-position="top" data-delay="50" data-tooltip="DELETE VIDEO"><i class="fa fa-trash fa-2x"></i></a>
 
 
     </form>

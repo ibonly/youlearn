@@ -14,10 +14,11 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link href="{!! load_asset('/css/materialize.css') !!}" type="text/css" rel="stylesheet" media="screen,projection"/>
     <link href="{!! load_asset('/css/style.css') !!}" type="text/css" rel="stylesheet" media="screen,projection"/>
-    <link href="{!! load_asset('/css/animate.css') !!}" type="text/css" rel="stylesheet" media="screen,projection"/>
-    <link href="{!! load_asset('/css/mdp.css') !!}" rel="stylesheet" type="text/css">
-    <link href="{!! load_asset('/css/sweetalert.css') !!}" rel="stylesheet" type="text/css">
-
+    <style type="text/css">
+    body{
+        background: #fff;
+    }
+    </style>
 </head>
 
 <body>
@@ -30,18 +31,10 @@
     <div class="container">
         <div class="section">
 
-            <div class="row">
-                <div class="col s12 m12 l8">
+            <div class="row" align="center">
 
-                    @yield('content')
+                <img src="{{ load_asset('/images/404.png') }}">
 
-                </div>
-
-                <div class="col s7 m4 offset-s6  hide-on-med-and-down right">
-
-                    @include('sections.sidenav')
-
-                </div>
             </div>
 
         </div>
@@ -57,17 +50,9 @@
     <script src="{!! load_asset('/js/jquery.min.js') !!}"></script>
     <script src="{!! load_asset('/js/index.js') !!}"></script>
     <script src="{!! load_asset('/js/wow.min.js') !!}"></script>
-    <script src="{!! load_asset('/js/NewPassword.js') !!}"></script>
-    <script type="text/javascript" src="{!! load_asset('/js/jquery-ui-1.11.1.js') !!}"></script>
-    <script type="text/javascript" src="{!! load_asset('/js/sweetalert.min.js') !!}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
 
     <script type="text/javascript">
-    $(document).ready(function(){
-        $('select').material_select();
-        $(".button-collapse").sideNav();
-        $('.tooltipped').tooltip({delay: 50});
-    });
     new WOW().init();
     </script>
 </body>

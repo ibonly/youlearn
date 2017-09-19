@@ -2,6 +2,7 @@
 
 namespace YouLearn\Test;
 
+use Auth;
 use YouLearn\User;
 use YouLearn\Video;
 use YouLearn\Avatar;
@@ -18,7 +19,7 @@ trait CreateTrait
     {
         return User::create([
             'username'   => 'testuser',
-            'email'      => 'email@test.com',
+            'email'      => 'ibonly01@gmail.com',
             'password'   => bcrypt('testpassword'),
             'facebookID' => 0,
             'twitterID'  => 0,
@@ -33,7 +34,7 @@ trait CreateTrait
      */
     public function createAvatar()
     {
-        Avatar::create([
+        return Avatar::create([
             'user_id'   => 1,
             'avatarURL' => 'asdada'
         ]);
@@ -46,8 +47,9 @@ trait CreateTrait
      */
     public function createCategory()
     {
-        Category::create([
-            'name' => 'Test Category'
+        return Category::create([
+            'id'   => 1,
+            'name' => 'Test-Category'
         ]);
     }
 
@@ -58,13 +60,28 @@ trait CreateTrait
      */
     public function createVideo()
     {
-        Video::create([
+        return Video::create([
+            'id'          => 1,
             'user_id'     => 1,
-            'category_id' => 1,
-            'title'       => 'Test-Title',
-            'url'         => 'sample video',
+            'category_id' => 9,
+            'title'       => 'Test Title',
+            'url'         => 'https://www.youtube.com/watch?v=7TF00hJI78Y',
             'description' => 'Sample video description',
             'slug'        => 'Test-Title'
         ]);
+    }
+
+    /**
+     * Log user in and create required tables
+     */
+    public function login()
+    {
+        $user = $this->createUser();
+
+        $this->createCategory();
+        $this->createAvatar();
+        $this->createVideo();
+
+        Auth::login($user);
     }
 }
